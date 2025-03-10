@@ -29,6 +29,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ecommerce.Order.Persistence
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ecommerce.Order.WebApi", "Services\Order\Presentation\Ecommerce.Order.WebApi\Ecommerce.Order.WebApi.csproj", "{0586DBB2-61E5-4DAC-9EFB-515016F08346}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IdentityServer", "IdentityServer", "{3502F464-D908-42AB-954D-8BFB7B76C671}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ecommerce.IdentityServer", "IdentityServer\Ecommerce.IdentityServer\Ecommerce.IdentityServer.csproj", "{F3EA49C7-120C-443A-8C5A-C72C87A49C57}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Requirements", "Requirements", "{5BCBDCEB-811B-44E4-85A0-E1B7E8AB5AF1}"
+	ProjectSection(SolutionItems) = preProject
+		ConnectionStrings.txt = ConnectionStrings.txt
+		IdentityServerVersionErrorSolution.txt = IdentityServerVersionErrorSolution.txt
+		PortainerCmd.txt = PortainerCmd.txt
+		PortNumbers.txt = PortNumbers.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +71,10 @@ Global
 		{0586DBB2-61E5-4DAC-9EFB-515016F08346}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0586DBB2-61E5-4DAC-9EFB-515016F08346}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0586DBB2-61E5-4DAC-9EFB-515016F08346}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3EA49C7-120C-443A-8C5A-C72C87A49C57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3EA49C7-120C-443A-8C5A-C72C87A49C57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3EA49C7-120C-443A-8C5A-C72C87A49C57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3EA49C7-120C-443A-8C5A-C72C87A49C57}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -76,5 +92,6 @@ Global
 		{18AA174A-607C-4588-9395-AC67A0364CAF} = {736F2A3C-DC19-4AE3-B54D-602CE9B74947}
 		{3155942E-40F9-4E4E-81D3-06F03F4EEC8B} = {D43A2FDD-8BA6-48EC-BE5E-834D6B4E77CB}
 		{0586DBB2-61E5-4DAC-9EFB-515016F08346} = {35191635-4E00-47CD-AC43-9FA03F0AD678}
+		{F3EA49C7-120C-443A-8C5A-C72C87A49C57} = {3502F464-D908-42AB-954D-8BFB7B76C671}
 	EndGlobalSection
 EndGlobal

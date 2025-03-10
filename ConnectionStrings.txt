@@ -1,0 +1,1 @@
+    "DefaultConnection": "Server=ADMINISTER\\SQLEXPRESS; initial Catalog=EcommerceDiscountDb; integrated Security=true;TrustServerCertificate= true;"
