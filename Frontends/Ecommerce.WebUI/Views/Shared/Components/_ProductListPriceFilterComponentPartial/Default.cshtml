@@ -1,0 +1,31 @@
+﻿<div class="mb-6">
+    <h3 class="font-medium mb-2">Fiyat Aralığı</h3>
+    <!-- Input Alanları ve Buton -->
+    <div class="flex items-center space-x-2">
+        <input type="number" id="minPrice" placeholder="En az" class="w-1/3 px-4 py-2 border rounded-lg focus:outline-none focus:border-primary" />
+        <span>-</span>
+        <input type="number" id="maxPrice" placeholder="En çok" class="w-1/3 px-4 py-2 border rounded-lg focus:outline-none focus:border-primary" />
+        <button id="priceSearchBtn" class="flex items-center bg-primary text-white px-4 py-2 rounded hover:bg-primary-dark">
+            <i class="fas fa-search mr-2"></i> Ara
+        </button>
+    </div>
+    <!-- Fiyat Aralığı Checkboxları (Alt Alta) -->
+    <div class="mt-4 space-y-2">
+        <label class="flex items-center">
+            <input type="checkbox" name="priceRange" value="0-250" class="price-checkbox mr-2 w-4 h-4 accent-primary">
+            <span>0-250</span>
+        </label>
+        <label class="flex items-center">
+            <input type="checkbox" name="priceRange" value="250-1000" class="price-checkbox mr-2 w-4 h-4 accent-primary">
+            <span>250-1000</span>
+        </label>
+        <label class="flex items-center">
+            <input type="checkbox" name="priceRange" value="1000-5000" class="price-checkbox mr-2 w-4 h-4 accent-primary">
+            <span>1000-5000</span>
+        </label>
+        <label class="flex items-center">
+            <input type="checkbox" name="priceRange" value="5000-20000" class="price-checkbox mr-2 w-4 h-4 accent-primary">
+            <span>5000-20000</span>
+        </label>
+    </div>
+</div>

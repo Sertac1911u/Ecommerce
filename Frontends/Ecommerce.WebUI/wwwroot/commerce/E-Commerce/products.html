@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ürünler - E-Market</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+
+
+    <!-- Font Awesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="font-[Poppins] bg-gray-50">
+    <!-- Navbar (Same as index.html) -->
+    <nav class="bg-white shadow-md fixed w-full top-0 z-50">
+        <div class="container mx-auto px-32">
+            <!-- Upper Nav -->
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <a href="index.html" class="text-primary text-2xl font-bold">E-Market</a>
+                <!-- Center Section -->
+                <div class="flex items-center flex-1 mx-8">
+                    <!-- Location: Biraz sola yakın ve "Adres Yok" yazıyor -->
+                    <a href="login.html" class="flex items-center mr-4 text-gray-600 hover:text-primary">
+                        <i class="fas fa-location-dot mr-2"></i>
+                        <span>Adres Yok</span>
+                    </a>
+                    <!-- Search Bar -->
+                    <div class="flex-1 relative">
+                        <input type="text" placeholder="Ürün, kategori veya marka ara..."
+                               class="w-full py-2 px-4 border border-gray-300 rounded-lg focus:outline-none focus:border-primary">
+                        <button class="absolute right-3 top-2 text-gray-400 hover:text-primary">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <!-- Right Section: Giriş Yap, İadeler ve Siparişler, Sepet -->
+                <div class="flex items-center space-x-6">
+                    <a href="login.html" class="bg-primary text-white py-2 px-4 rounded transition hover:bg-white">
+                        Giriş Yap
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-primary text-sm">
+                        İadeler ve Siparişler
+                    </a>
+                    <a href="cart.html" id="cartIcon" class="text-gray-600 hover:text-primary relative">
+                        <i class="fas fa-shopping-cart text-xl"></i>
+                        <span class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 text-xs flex items-center justify-center">3</span>
+                      </a>
+                      
+                </div>
+            </div>
+            <!-- Categories: Her kategori arasında hover'da ince çizgi -->
+            <div class="border-t">
+                <ul class="flex justify-between py-3 text-sm">
+                    <li><a href="#" class="hover:text-primary px-2 hover:underline">Elektronik</a></li>
+                    <li><a href="#" class="hover:text-primary px-2 hover:underline">Moda</a></li>
+                    <li><a href="#" class="hover:text-primary px-2 hover:underline">Ev & Yaşam</a></li>
+                    <li><a href="#" class="hover:text-primary px-2 hover:underline">Spor</a></li>
+                    <li><a href="#" class="hover:text-primary px-2 hover:underline">Çok Satanlar</a></li>
+                    <li><a href="#" class="hover:text-primary px-2 hover:underline">Çocuk</a></li>
+                    <li><a href="#" class="hover:text-primary px-2 hover:underline">Kozmetik</a></li>
+                    <li><a href="#" class="hover:text-primary px-2 hover:underline">Süpermarket</a></li>
+                    <li><a href="#" class="hover:text-primary px-2 hover:underline">Kitap & Hobi</a></li>
+                    <li><a href="#" class="hover:text-primary px-2 hover:underline">Yapı Market</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-32 mt-32 mb-12">
+        <div class="flex gap-8">
+            <!-- Filters Sidebar (Sol: %25) -->
+            <aside class="w-1/4 bg-white rounded-lg shadow-sm p-4 h-fit sticky top-32">
+                <h2 class="text-lg font-semibold mb-4">Filtreler</h2>
+              
+                <!-- Kategoriler Filter -->
+                <div class="mb-6">
+                  <h3 class="font-medium mb-2">Kategoriler</h3>
+                  <div class="space-y-2">
+                    <label class="flex items-center">
+                      <input type="checkbox" class="mr-2 w-5 h-5 accent-primary">
+                      <span>Telefonlar</span>
+                    </label>
+                    <label class="flex items-center">
+                      <input type="checkbox" class="mr-2 w-5 h-5 accent-primary">
+                      <span>Tabletler</span>
+                    </label>
+                    <label class="flex items-center">
+                      <input type="checkbox" class="mr-2 w-5 h-5 accent-primary">
+                      <span>Laptoplar</span>
+                    </label>
+                    <label class="flex items-center">
+                      <input type="checkbox" class="mr-2 w-5 h-5 accent-primary">
+                      <span>Aksesuarlar</span>
+                    </label>
+                  </div>
+                </div>
+              
+                <!-- Fiyat Aralığı Filter -->
+                <div class="mb-6">
+                  <h3 class="font-medium mb-2">Fiyat Aralığı</h3>
+                  <!-- Input Alanları ve Buton -->
+                  <div class="flex items-center space-x-2">
+                    <input type="number" id="minPrice" placeholder="En az" class="w-1/3 px-4 py-2 border rounded-lg focus:outline-none focus:border-primary" />
+                    <span>-</span>
+                    <input type="number" id="maxPrice" placeholder="En çok" class="w-1/3 px-4 py-2 border rounded-lg focus:outline-none focus:border-primary" />
+                    <button id="priceSearchBtn" class="flex items-center bg-primary text-white px-4 py-2 rounded hover:bg-primary-dark">
+                      <i class="fas fa-search mr-2"></i> Ara
+                    </button>
+                  </div>
+                  <!-- Fiyat Aralığı Checkboxları (Alt Alta) -->
+                  <div class="mt-4 space-y-2">
+                    <label class="flex items-center">
+                      <input type="checkbox" name="priceRange" value="0-250" class="price-checkbox mr-2 w-4 h-4 accent-primary">
+                      <span>0-250</span>
+                    </label>
+                    <label class="flex items-center">
+                      <input type="checkbox" name="priceRange" value="250-1000" class="price-checkbox mr-2 w-4 h-4 accent-primary">
+                      <span>250-1000</span>
+                    </label>
+                    <label class="flex items-center">
+                      <input type="checkbox" name="priceRange" value="1000-5000" class="price-checkbox mr-2 w-4 h-4 accent-primary">
+                      <span>1000-5000</span>
+                    </label>
+                    <label class="flex items-center">
+                      <input type="checkbox" name="priceRange" value="5000-20000" class="price-checkbox mr-2 w-4 h-4 accent-primary">
+                      <span>5000-20000</span>
+                    </label>
+                  </div>
+                </div>
+              
+                <!-- Markalar Filter -->
+                <div class="mb-6">
+                  <h3 class="font-medium mb-2">Markalar</h3>
+                  <div class="space-y-2">
+                    <label class="flex items-center">
+                      <input type="checkbox" class="mr-2 w-5 h-5 accent-primary">
+                      <span>Apple</span>
+                    </label>
+                    <label class="flex items-center">
+                      <input type="checkbox" class="mr-2 w-5 h-5 accent-primary">
+                      <span>Samsung</span>
+                    </label>
+                    <label class="flex items-center">
+                      <input type="checkbox" class="mr-2 w-5 h-5 accent-primary">
+                      <span>Xiaomi</span>
+                    </label>
+                    <label class="flex items-center">
+                      <input type="checkbox" class="mr-2 w-5 h-5 accent-primary">
+                      <span>Huawei</span>
+                    </label>
+                  </div>
+                </div>
+              
+                <!-- Değerlendirme Filter -->
+                <div class="mb-6">
+                  <h3 class="font-medium mb-2">Değerlendirme</h3>
+                  <div class="space-y-2">
+                    <label class="flex items-center">
+                      <input type="checkbox" class="mr-2 w-5 h-5 accent-primary">
+                      <div class="flex items-center">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <span class="ml-2">(5)</span>
+                      </div>
+                    </label>
+                    <label class="flex items-center">
+                      <input type="checkbox" class="mr-2 w-5 h-5 accent-primary">
+                      <div class="flex items-center">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="far fa-star text-yellow-400"></i>
+                        <span class="ml-2">(4+)</span>
+                      </div>
+                    </label>
+                  </div>
+                </div>
+              
+                <!-- Renk Filter -->
+                <div class="mb-6">
+                  <h3 class="font-medium mb-2">Renk</h3>
+                  <div class="space-y-2">
+                    <label class="flex items-center">
+                      <input type="checkbox" class="mr-2 w-5 h-5 accent-primary">
+                      <span>Kırmızı</span>
+                    </label>
+                    <label class="flex items-center">
+                      <input type="checkbox" class="mr-2 w-5 h-5 accent-primary">
+                      <span>Mavi</span>
+                    </label>
+                    <label class="flex items-center">
+                      <input type="checkbox" class="mr-2 w-5 h-5 accent-primary">
+                      <span>Siyah</span>
+                    </label>
+                    <label class="flex items-center">
+                      <input type="checkbox" class="mr-2 w-5 h-5 accent-primary">
+                      <span>Beyaz</span>
+                    </label>
+                    <label class="flex items-center">
+                      <input type="checkbox" class="mr-2 w-5 h-5 accent-primary">
+                      <span>Yeşil</span>
+                    </label>
+                  </div>
+                </div>
+              
+                <!-- İndirim Filter -->
+                <div class="mb-6">
+                  <h3 class="font-medium mb-2">İndirim</h3>
+                  <div class="space-y-2">
+                    <label class="flex items-center">
+                      <input type="checkbox" class="mr-2 w-5 h-5 accent-primary">
+                      <span>İndirimli Ürünler</span>
+                    </label>
+                  </div>
+                </div>
+              
+                <!-- Stok Filter -->
+                <div class="mb-6">
+                  <h3 class="font-medium mb-2">Stok Durumu</h3>
+                  <div class="space-y-2">
+                    <label class="flex items-center">
+                      <input type="checkbox" class="mr-2 w-5 h-5 accent-primary">
+                      <span>Stokta Var</span>
+                    </label>
+                    <label class="flex items-center">
+                      <input type="checkbox" class="mr-2 w-5 h-5 accent-primary">
+                      <span>Stokta Yok</span>
+                    </label>
+                  </div>
+                </div>
+              
+                <!-- Genel Ürün Özellikleri -->
+                <div class="mb-6">
+                  <h3 class="font-medium mb-2">Genel Ürün Özellikleri</h3>
+                  <div class="space-y-2">
+                    <label class="flex items-center">
+                      <input type="checkbox" class="mr-2 w-5 h-5 accent-primary">
+                      <span>Ürün Boyutu & Ölçüleri</span>
+                    </label>
+                    <label class="flex items-center">
+                      <input type="checkbox" class="mr-2 w-5 h-5 accent-primary">
+                      <span>Ürün Durumu (Yeni, İkinci El, Yenilenmiş)</span>
+                    </label>
+                    <label class="flex items-center">
+                      <input type="checkbox" class="mr-2 w-5 h-5 accent-primary">
+                      <span>Menşei & Üretim Yeri</span>
+                    </label>
+                    <label class="flex items-center">
+                      <input type="checkbox" class="mr-2 w-5 h-5 accent-primary">
+                      <span>Garanti & Servis Bilgileri</span>
+                    </label>
+                  </div>
+                </div>
+              
+                <!-- Kategoriye Özgü Filtreler -->
+                <div class="mb-6">
+                  <h3 class="font-medium mb-2">Kategoriye Özgü Filtreler</h3>
+                  <div class="space-y-4">
+                    <!-- Giyim & Aksesuarlar -->
+                    <div>
+                      <h4 class="font-semibold mb-2">Giyim & Aksesuarlar</h4>
+                      <div class="space-y-1">
+                        <label class="flex items-center">
+                          <input type="checkbox" class="mr-2 w-5 h-5 accent-primary">
+                          <span>Beden</span>
+                        </label>
+                        <label class="flex items-center">
+                          <input type="checkbox" class="mr-2 w-5 h-5 accent-primary">
+                          <span>Kesim (Regular, Slim, Oversize)</span>
+                        </label>
+                        <label class="flex items-center">
+                          <input type="checkbox" class="mr-2 w-5 h-5 accent-primary">
+                          <span>Kumaş Türü</span>
+                        </label>
+                        <label class="flex items-center">
+                          <input type="checkbox" class="mr-2 w-5 h-5 accent-primary">
+                          <span>Sezon</span>
+                        </label>
+                        <label class="flex items-center">
+                          <input type="checkbox" class="mr-2 w-5 h-5 accent-primary">
+                          <span>Stil/Model</span>
+                        </label>
+                      </div>
+                    </div>
+                    <!-- Elektronik & Teknoloji -->
+                    <div>
+                      <h4 class="font-semibold mb-2">Elektronik & Teknoloji</h4>
+                      <div class="space-y-1">
+                        <label class="flex items-center">
+                          <input type="checkbox" class="mr-2 w-5 h-5 accent-primary">
+                          <span>RAM & Depolama</span>
+                        </label>
+                        <label class="flex items-center">
+                          <input type="checkbox" class="mr-2 w-5 h-5 accent-primary">
+                          <span>Ekran Boyutu & Çözünürlük</span>
+                        </label>
+                        <label class="flex items-center">
+                          <input type="checkbox" class="mr-2 w-5 h-5 accent-primary">
+                          <span>İşlemci & İşletim Sistemi</span>
+                        </label>
+                        <label class="flex items-center">
+                          <input type="checkbox" class="mr-2 w-5 h-5 accent-primary">
+                          <span>Bağlantı Özellikleri</span>
+                        </label>
+                      </div>
+                    </div>
+                    <!-- Mobilya & Ev Dekorasyonu -->
+                    <div>
+                      <h4 class="font-semibold mb-2">Mobilya & Ev Dekorasyonu</h4>
+                      <div class="space-y-1">
+                        <label class="flex items-center">
+                          <input type="checkbox" class="mr-2 w-5 h-5 accent-primary">
+                          <span>Malzeme Türü</span>
+                        </label>
+                        <label class="flex items-center">
+                          <input type="checkbox" class="mr-2 w-5 h-5 accent-primary">
+                          <span>Boyutlar & Montaj</span>
+                        </label>
+                        <label class="flex items-center">
+                          <input type="checkbox" class="mr-2 w-5 h-5 accent-primary">
+                          <span>Stil (Modern, Klasik, vs.)</span>
+                        </label>
+                      </div>
+                    </div>
+                    <!-- Kitap, Müzik & Medya -->
+                    <div>
+                      <h4 class="font-semibold mb-2">Kitap, Müzik & Medya</h4>
+                      <div class="space-y-1">
+                        <label class="flex items-center">
+                          <input type="checkbox" class="mr-2 w-5 h-5 accent-primary">
+                          <span>Yazar & Yayınevi</span>
+                        </label>
+                        <label class="flex items-center">
+                          <input type="checkbox" class="mr-2 w-5 h-5 accent-primary">
+                          <span>Basım Tarihi</span>
+                        </label>
+                        <label class="flex items-center">
+                          <input type="checkbox" class="mr-2 w-5 h-5 accent-primary">
+                          <span>Dil & Sayfa Sayısı</span>
+                        </label>
+                      </div>
+                    </div>
+                    <!-- Oyuncak & Çocuk Ürünleri -->
+                    <div>
+                      <h4 class="font-semibold mb-2">Oyuncak & Çocuk Ürünleri</h4>
+                      <div class="space-y-1">
+                        <label class="flex items-center">
+                          <input type="checkbox" class="mr-2 w-5 h-5 accent-primary">
+                          <span>Yaş Grubu</span>
+                        </label>
+                        <label class="flex items-center">
+                          <input type="checkbox" class="mr-2 w-5 h-5 accent-primary">
+                          <span>Cinsiyet Tercihi</span>
+                        </label>
+                        <label class="flex items-center">
+                          <input type="checkbox" class="mr-2 w-5 h-5 accent-primary">
+                          <span>Kullanım Amacı</span>
+                        </label>
+                      </div>
+                    </div>
+                    <!-- Spor & Outdoor Ürünleri -->
+                    <div>
+                      <h4 class="font-semibold mb-2">Spor & Outdoor Ürünleri</h4>
+                      <div class="space-y-1">
+                        <label class="flex items-center">
+                          <input type="checkbox" class="mr-2 w-5 h-5 accent-primary">
+                          <span>Spor Dalı</span>
+                        </label>
+                        <label class="flex items-center">
+                          <input type="checkbox" class="mr-2 w-5 h-5 accent-primary">
+                          <span>Malzeme & Teknik Özellikler</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              
+                <!-- Ek Fonksiyonel Filtreler -->
+                <div class="mb-6">
+                  <h3 class="font-medium mb-2">Ek Fonksiyonel Filtreler</h3>
+                  <div class="space-y-2">
+                    <label class="flex items-center">
+                      <input type="checkbox" class="mr-2 w-5 h-5 accent-primary">
+                      <span>Enerji Verimliliği</span>
+                    </label>
+                    <label class="flex items-center">
+                      <input type="checkbox" class="mr-2 w-5 h-5 accent-primary">
+                      <span>Çevre Dostu Özellikler</span>
+                    </label>
+                    <label class="flex items-center">
+                      <input type="checkbox" class="mr-2 w-5 h-5 accent-primary">
+                      <span>Kargo & Teslimat Seçenekleri</span>
+                    </label>
+                    <label class="flex items-center">
+                      <input type="checkbox" class="mr-2 w-5 h-5 accent-primary">
+                      <span>Satıcı & Ürün Puanları</span>
+                    </label>
+                  </div>
+                </div>
+              </aside>
+              
+
+            <!-- Products Grid (Sağ: %75) -->
+            <section class="w-3/4">
+                <!-- Sort Bar -->
+                <div class="bg-white rounded-lg shadow-sm p-4 mb-6 flex items-center justify-between">
+                    <span>Arama Sonucları "Ekmek" (248 ürün bulundu)</span>
+                    <select class="border rounded p-2">
+                        <option>En Düşük Fiyat</option>
+                        <option>En Yüksek Fiyat</option>
+                        <option>En Çok Değerlendirilenler</option>
+                        <option>En Yeniler</option>
+                    </select>
+                </div>
+            
+                <!-- Products Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Product Card 1 -->
+                    <div class="bg-white rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300 p-4 group">
+                        <div class="relative">
+                            <a href="product.html">
+                                <img src="img/dericeket.jpg" alt="Dericeket" class="w-full h-48 object-contain rounded-lg">
+                            </a>
+                            <button class="absolute top-2 right-2 text-gray-400 hover:text-red-500">
+                                <i class="far fa-heart text-xl"></i>
+                            </button>
+                        </div>
+                        <div class="mt-4">
+                            <a href="product.html" class="hover:text-primary transition-colors">
+                                <h3 class="font-medium">Dericeket</h3>
+                            </a>
+                            <div class="flex items-center mt-1 text-xs">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <span class="ml-1">4.8 (254)</span>
+                            </div>
+                            <p class="text-lg font-bold mt-2">24.999 TL</p>
+                            <button class="add-to-cart w-full mt-2 bg-primary text-white py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
+                                Sepete Ekle
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Product Card 2 -->
+                    <div class="bg-white rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300 p-4 group">
+                        <div class="relative">
+                            <a href="product.html">
+                                <img src="img/soda.jpg" alt="Soda" class="w-full h-48 object-contain rounded-lg">
+                            </a>
+                            <button class="absolute top-2 right-2 text-gray-400 hover:text-red-500">
+                                <i class="far fa-heart text-xl"></i>
+                            </button>
+                        </div>
+                        <div class="mt-4">
+                            <a href="product.html" class="hover:text-primary transition-colors">
+                                <h3 class="font-medium">Soda</h3>
+                            </a>
+                            <div class="flex items-center mt-1 text-xs">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <span class="ml-1">4.8 (254)</span>
+                            </div>
+                            <p class="text-lg font-bold mt-2">24.999 TL</p>
+                            <button class="add-to-cart w-full mt-2 bg-primary text-white py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
+                                Sepete Ekle
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Product Card 3 -->
+                    <div class="bg-white rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300 p-4 group">
+                        <div class="relative">
+                            <a href="product.html">
+                                <img src="img/tırnak.avif" alt="Tırnak" class="w-full h-48 object-contain rounded-lg">
+                            </a>
+                            <button class="absolute top-2 right-2 text-gray-400 hover:text-red-500">
+                                <i class="far fa-heart text-xl"></i>
+                            </button>
+                        </div>
+                        <div class="mt-4">
+                            <a href="product.html" class="hover:text-primary transition-colors">
+                                <h3 class="font-medium">Tırnak</h3>
+                            </a>
+                            <div class="flex items-center mt-1 text-xs">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <span class="ml-1">4.8 (254)</span>
+                            </div>
+                            <p class="text-lg font-bold mt-2">24.999 TL</p>
+                            <button class="add-to-cart w-full mt-2 bg-primary text-white py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
+                                Sepete Ekle
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Product Card 4 -->
+                    <div class="bg-white rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300 p-4 group">
+                        <div class="relative">
+                            <a href="product.html">
+                                <img src="img/defter.jpg" alt="Defter" class="w-full h-48 object-contain rounded-lg">
+                            </a>
+                            <button class="absolute top-2 right-2 text-gray-400 hover:text-red-500">
+                                <i class="far fa-heart text-xl"></i>
+                            </button>
+                        </div>
+                        <div class="mt-4">
+                            <a href="product.html" class="hover:text-primary transition-colors">
+                                <h3 class="font-medium">Defter</h3>
+                            </a>
+                            <div class="flex items-center mt-1 text-xs">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <span class="ml-1">4.8 (254)</span>
+                            </div>
+                            <p class="text-lg font-bold mt-2">24.999 TL</p>
+                            <button class="add-to-cart w-full mt-2 bg-primary text-white py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
+                                Sepete Ekle
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Product Card 5 -->
+                    <div class="bg-white rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300 p-4 group">
+                        <div class="relative">
+                            <a href="product.html">
+                                <img src="img/kablolukulakluk.png" alt="Kablolukulakluk" class="w-full h-48 object-contain rounded-lg">
+                            </a>
+                            <button class="absolute top-2 right-2 text-gray-400 hover:text-red-500">
+                                <i class="far fa-heart text-xl"></i>
+                            </button>
+                        </div>
+                        <div class="mt-4">
+                            <a href="product.html" class="hover:text-primary transition-colors">
+                                <h3 class="font-medium">Kablolukulakluk</h3>
+                            </a>
+                            <div class="flex items-center mt-1 text-xs">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <span class="ml-1">4.8 (254)</span>
+                            </div>
+                            <p class="text-lg font-bold mt-2">24.999 TL</p>
+                            <button class="add-to-cart w-full mt-2 bg-primary text-white py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
+                                Sepete Ekle
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Product Card 6 -->
+                    <div class="bg-white rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300 p-4 group">
+                        <div class="relative">
+                            <a href="product.html">
+                                <img src="img/mac.avif" alt="Mac" class="w-full h-48 object-contain rounded-lg">
+                            </a>
+                            <button class="absolute top-2 right-2 text-gray-400 hover:text-red-500">
+                                <i class="far fa-heart text-xl"></i>
+                            </button>
+                        </div>
+                        <div class="mt-4">
+                            <a href="product.html" class="hover:text-primary transition-colors">
+                                <h3 class="font-medium">Mac</h3>
+                            </a>
+                            <div class="flex items-center mt-1 text-xs">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <span class="ml-1">4.8 (254)</span>
+                            </div>
+                            <p class="text-lg font-bold mt-2">24.999 TL</p>
+                            <button class="add-to-cart w-full mt-2 bg-primary text-white py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
+                                Sepete Ekle
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Product Card 7 -->
+                    <div class="bg-white rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300 p-4 group">
+                        <div class="relative">
+                            <a href="product.html">
+                                <img src="img/defter.jpg" alt="Defter" class="w-full h-48 object-contain rounded-lg">
+                            </a>
+                            <button class="absolute top-2 right-2 text-gray-400 hover:text-red-500">
+                                <i class="far fa-heart text-xl"></i>
+                            </button>
+                        </div>
+                        <div class="mt-4">
+                            <a href="product.html" class="hover:text-primary transition-colors">
+                                <h3 class="font-medium">Defter</h3>
+                            </a>
+                            <div class="flex items-center mt-1 text-xs">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <span class="ml-1">4.8 (254)</span>
+                            </div>
+                            <p class="text-lg font-bold mt-2">24.999 TL</p>
+                            <button class="add-to-cart w-full mt-2 bg-primary text-white py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
+                                Sepete Ekle
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Product Card 8 -->
+                    <div class="bg-white rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300 p-4 group">
+                        <div class="relative">
+                            <a href="product.html">
+                                <img src="img/avize.webp" alt="Avize" class="w-full h-48 object-contain rounded-lg">
+                            </a>
+                            <button class="absolute top-2 right-2 text-gray-400 hover:text-red-500">
+                                <i class="far fa-heart text-xl"></i>
+                            </button>
+                        </div>
+                        <div class="mt-4">
+                            <a href="product.html" class="hover:text-primary transition-colors">
+                                <h3 class="font-medium">Avize</h3>
+                            </a>
+                            <div class="flex items-center mt-1 text-xs">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <span class="ml-1">4.8 (254)</span>
+                            </div>
+                            <p class="text-lg font-bold mt-2">24.999 TL</p>
+                            <button class="add-to-cart w-full mt-2 bg-primary text-white py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
+                                Sepete Ekle
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            
+                
+            </section>
+            
+        </div>
+    </main>
+
+    <!-- Footer (Same as index.html) -->
+    <footer class="bg-gray-100 mt-16">
+        <div class="container mx-auto px-32 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Şirket Bilgileri -->
+                <div>
+                    <h4 class="font-semibold mb-4">Şirket</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-primary">Hakkımızda</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary">Müşteri Hizmetleri</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary">Kariyer</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary">İletişim</a></li>
+                    </ul>
+                </div>
+                <!-- Sosyal Medya -->
+                <div>
+                    <h4 class="font-semibold mb-4">Bizi Takip Edin</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-600 hover:text-primary"><i class="fab fa-instagram text-2xl"></i></a>
+                        <a href="#" class="text-gray-600 hover:text-primary"><i class="fab fa-youtube text-2xl"></i></a>
+                        <a href="#" class="text-gray-600 hover:text-primary"><i class="fab fa-tiktok text-2xl"></i></a>
+                        <a href="#" class="text-gray-600 hover:text-primary"><i class="fab fa-twitter text-2xl"></i></a>
+                        <a href="#" class="text-gray-600 hover:text-primary"><i class="fab fa-linkedin text-2xl"></i></a>
+                    </div>
+                </div>
+                <!-- Mobil Uygulamalar -->
+                <div>
+                    <h4 class="font-semibold mb-4">Mobil Uygulamalar</h4>
+                    <div class="space-y-2">
+                        <a href="#" class="block">
+                            <img src="img/google.webp" alt="App Store" class="w-[120px] h-[40px] object-contain">
+                        </a>
+                        <a href="#" class="block">
+                            <img src="img/appstore.webp" alt="Play Store" class="w-[120px] h-[40px] object-contain">
+                        </a>
+                        <a href="#" class="block">
+                            <img src="img/appgallery.png" alt="App Gallery" class="w-[120px] h-[40px] object-contain">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- İletişim -->
+                <div>
+                    <h4 class="font-semibold mb-4">İletişim</h4>
+                    <p class="flex items-center text-gray-600">
+                        <i class="fab fa-whatsapp mr-2"></i>
+                        <span>0850 123 4567</span>
+                    </p>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t">
+                <div class="flex justify-center space-x-4">
+                    <img src="img/is.png" alt="İş Bankası" class="w-[60px] h-[30px] object-contain">
+                    <img src="img/troy.png" alt="Troy" class="w-[60px] h-[30px] object-contain">
+                    <img src="img/visa.png" alt="Visa" class="w-[60px] h-[30px] object-contain">
+                    <img src="img/ms.jpg" alt="Mastercard" class="w-[60px] h-[30px] object-contain">
+                </div>
+            </div>
+
+        </div>
+    </footer>
+    <button id="backToTop" class="fixed bottom-8 right-8 bg-primary text-white w-12 h-12 flex items-center justify-center rounded-full opacity-0 transition-opacity">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.6.1/nouislider.min.js"></script>
+    <script>
+       document.querySelectorAll('.price-checkbox').forEach(function(checkbox) {
+  checkbox.addEventListener('change', function() {
+    if (this.checked) {
+      // Diğer checkboxları temizle (tek seçim için)
+      document.querySelectorAll('.price-checkbox').forEach(function(other) {
+        if (other !== checkbox) {
+          other.checked = false;
+        }
+      });
+      // Seçilen aralığı input alanlarına yaz
+      var range = this.value.split('-');
+      document.getElementById('minPrice').value = range[0];
+      document.getElementById('maxPrice').value = range[1];
+    } else {
+      // Checkbox kapatılırsa input alanlarını temizleyebilirsiniz
+      document.getElementById('minPrice').value = '';
+      document.getElementById('maxPrice').value = '';
+    }
+  });
+});
+
+    </script>
+
+</body>
+</html>

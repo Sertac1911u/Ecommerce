@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Satıcı - E-Market</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Font Awesome Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="font-[Poppins]">
+  <!-- NAVBAR (Aynı index.html'den kopyalanmış) -->
+  <nav class="bg-white shadow-md fixed w-full top-0 z-50">
+    <div class="container mx-auto px-32">
+      <div class="flex items-center justify-between h-16">
+        <a href="index.html" class="text-primary text-2xl font-bold">E-Market</a>
+        <div class="flex items-center flex-1 mx-8">
+          <a href="login.html" class="flex items-center mr-4 text-gray-600 hover:text-primary">
+            <i class="fas fa-location-dot mr-2"></i>
+            <span class="truncate-address">Akay Sokak No11 Daire 8 İstanbul Çekmeköy</span>
+          </a>
+          <div class="flex-1 relative">
+            <input type="text" placeholder="Ürün, kategori veya marka ara..."
+                   class="w-full py-2 px-4 border border-gray-300 rounded-lg focus:outline-none focus:border-primary">
+            <button class="absolute right-3 top-2 text-gray-400 hover:text-primary">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+        <div class="flex items-center space-x-6">
+          <a href="login.html" class="bg-primary text-white py-2 px-4 rounded transition hover:bg-white">
+            Giriş Yap
+          </a>
+          <a href="#" class="text-gray-600 hover:text-primary text-sm">
+            İadeler ve Siparişler
+          </a>
+          <a href="cart.html" id="cartIcon" class="text-gray-600 hover:text-primary relative">
+            <i class="fas fa-shopping-cart text-xl"></i>
+            <span class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 text-xs flex items-center justify-center">3</span>
+          </a>
+        </div>
+      </div>
+      <div class="border-t">
+        <ul class="flex justify-between py-3 text-sm">
+          <li><a href="#" class="hover:text-primary px-2 hover:underline">Elektronik</a></li>
+          <li><a href="#" class="hover:text-primary px-2 hover:underline">Moda</a></li>
+          <li><a href="#" class="hover:text-primary px-2 hover:underline">Ev & Yaşam</a></li>
+          <li><a href="#" class="hover:text-primary px-2 hover:underline">Spor</a></li>
+          <li><a href="#" class="hover:text-primary px-2 hover:underline">Çok Satanlar</a></li>
+          <li><a href="#" class="hover:text-primary px-2 hover:underline">Çocuk</a></li>
+          <li><a href="#" class="hover:text-primary px-2 hover:underline">Kozmetik</a></li>
+          <li><a href="#" class="hover:text-primary px-2 hover:underline">Süpermarket</a></li>
+          <li><a href="#" class="hover:text-primary px-2 hover:underline">Kitap & Hobi</a></li>
+          <li><a href="#" class="hover:text-primary px-2 hover:underline">Yapı Market</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- SATICI BİLGİLERİ VE İÇERİK -->
+  <main class="container mx-auto px-32 mt-40 mb-12">
+    <!-- Satıcı Profil Bölümü -->
+    <section class="bg-white rounded-lg shadow p-6 mb-12">
+      <div class="flex items-center">
+        <img src="https://picsum.photos/150/150?random=seller" alt="Satıcı Profil" class="w-32 h-32 rounded-full object-cover">
+        <div class="ml-6">
+          <h1 class="text-3xl font-bold">Örnek Satıcı</h1>
+          <p class="text-gray-600 mt-2">Kaliteli ürünler ve hızlı kargo ile hizmetinizdeyiz. 10 yıldır sektörde güvenilir alışveriş deneyimi sunuyoruz.</p>
+          <div class="mt-2 flex items-center">
+            <i class="fas fa-star text-yellow-400"></i>
+            <span class="ml-1 text-lg">4.8 (254 Yorum)</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Satıcının Ürünleri -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold mb-6">Satıcının Ürünleri</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Ürün Kartı 1 -->
+        <div class="bg-white rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300 p-4 group">
+          <div class="relative">
+            <a href="product.html">
+              <img src="https://picsum.photos/300/300?random=11" alt="Ürün" class="w-full h-48 object-contain rounded-lg">
+            </a>
+            <button class="absolute top-2 right-2 text-gray-400 hover:text-red-500">
+              <i class="far fa-heart text-xl"></i>
+            </button>
+          </div>
+          <div class="mt-4">
+            <a href="product.html" class="hover:text-primary transition-colors">
+              <h3 class="font-medium">Örnek Ürün Adı 1</h3>
+            </a>
+            <p class="text-lg font-bold mt-2">199,99 TL</p>
+            <button class="add-to-cart w-full mt-2 bg-primary text-white py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
+              Sepete Ekle
+            </button>
+          </div>
+        </div>
+        <!-- Ürün Kartı 2 -->
+        <div class="bg-white rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300 p-4 group">
+          <div class="relative">
+            <a href="product.html">
+              <img src="https://picsum.photos/300/300?random=12" alt="Ürün" class="w-full h-48 object-contain rounded-lg">
+            </a>
+            <button class="absolute top-2 right-2 text-gray-400 hover:text-red-500">
+              <i class="far fa-heart text-xl"></i>
+            </button>
+          </div>
+          <div class="mt-4">
+            <a href="product.html" class="hover:text-primary transition-colors">
+              <h3 class="font-medium">Örnek Ürün Adı 2</h3>
+            </a>
+            <p class="text-lg font-bold mt-2">299,99 TL</p>
+            <button class="add-to-cart w-full mt-2 bg-primary text-white py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
+              Sepete Ekle
+            </button>
+          </div>
+        </div>
+        <!-- Ürün Kartı 3 -->
+        <div class="bg-white rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300 p-4 group">
+          <div class="relative">
+            <a href="product.html">
+              <img src="https://picsum.photos/300/300?random=13" alt="Ürün" class="w-full h-48 object-contain rounded-lg">
+            </a>
+            <button class="absolute top-2 right-2 text-gray-400 hover:text-red-500">
+              <i class="far fa-heart text-xl"></i>
+            </button>
+          </div>
+          <div class="mt-4">
+            <a href="product.html" class="hover:text-primary transition-colors">
+              <h3 class="font-medium">Örnek Ürün Adı 3</h3>
+            </a>
+            <p class="text-lg font-bold mt-2">149,99 TL</p>
+            <button class="add-to-cart w-full mt-2 bg-primary text-white py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
+              Sepete Ekle
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Satıcı Yorumları -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold mb-6">Satıcı Yorumları</h2>
+      <div class="space-y-4">
+        <!-- Yorum Kartı 1 -->
+        <div class="bg-white rounded-lg p-4 shadow-sm">
+          <div class="flex items-center">
+            <img src="https://picsum.photos/50/50?random=user1" alt="Kullanıcı" class="w-12 h-12 rounded-full object-cover">
+            <div class="ml-4">
+              <h3 class="font-semibold">Ahmet Y.</h3>
+              <div class="flex items-center">
+                <i class="fas fa-star text-yellow-400"></i>
+                <span class="ml-1 text-sm">5</span>
+              </div>
+            </div>
+          </div>
+          <p class="mt-2 text-gray-700">Harika bir satıcı! Ürün kalitesi ve hizmet mükemmeldi.</p>
+        </div>
+        <!-- Yorum Kartı 2 -->
+        <div class="bg-white rounded-lg p-4 shadow-sm">
+          <div class="flex items-center">
+            <img src="https://picsum.photos/50/50?random=user2" alt="Kullanıcı" class="w-12 h-12 rounded-full object-cover">
+            <div class="ml-4">
+              <h3 class="font-semibold">Ayşe K.</h3>
+              <div class="flex items-center">
+                <i class="fas fa-star text-yellow-400"></i>
+                <span class="ml-1 text-sm">4</span>
+              </div>
+            </div>
+          </div>
+          <p class="mt-2 text-gray-700">Ürün hızlı kargolandı ancak paketleme geliştirmeye açık.</p>
+        </div>
+      </div>
+      <!-- Yorum Ekleme Formu -->
+      <div class="mt-8">
+        <h3 class="text-xl font-semibold mb-4">Yorum Yaz</h3>
+        <form id="commentForm" class="space-y-4">
+          <textarea id="commentInput" rows="4" placeholder="Yorumunuzu buraya yazın..." class="w-full border rounded-lg py-2 px-3 focus:outline-none focus:border-primary"></textarea>
+          <button type="submit" class="w-full bg-primary text-white py-2 rounded-lg hover:bg-primary-dark transition">
+            Yorum Gönder
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER (Aynı index.html'den kopyalandı) -->
+  <footer class="bg-gray-100 mt-16">
+    <div class="container mx-auto px-32 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <!-- Şirket Bilgileri -->
+        <div>
+          <h4 class="font-semibold mb-4">Şirket</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-600 hover:text-primary">Hakkımızda</a></li>
+            <li><a href="#" class="text-gray-600 hover:text-primary">Müşteri Hizmetleri</a></li>
+            <li><a href="#" class="text-gray-600 hover:text-primary">Kariyer</a></li>
+            <li><a href="#" class="text-gray-600 hover:text-primary">İletişim</a></li>
+          </ul>
+        </div>
+        <!-- Sosyal Medya -->
+        <div>
+          <h4 class="font-semibold mb-4">Bizi Takip Edin</h4>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-600 hover:text-primary"><i class="fab fa-instagram text-2xl"></i></a>
+            <a href="#" class="text-gray-600 hover:text-primary"><i class="fab fa-youtube text-2xl"></i></a>
+            <a href="#" class="text-gray-600 hover:text-primary"><i class="fab fa-tiktok text-2xl"></i></a>
+            <a href="#" class="text-gray-600 hover:text-primary"><i class="fab fa-twitter text-2xl"></i></a>
+            <a href="#" class="text-gray-600 hover:text-primary"><i class="fab fa-linkedin text-2xl"></i></a>
+          </div>
+        </div>
+        <!-- Mobil Uygulamalar -->
+        <div>
+          <h4 class="font-semibold mb-4">Mobil Uygulamalar</h4>
+          <div class="space-y-2">
+            <a href="#" class="block">
+              <img src="img/google.webp" alt="App Store" class="w-[120px] h-[40px] object-contain">
+            </a>
+            <a href="#" class="block">
+              <img src="img/appstore.webp" alt="Play Store" class="w-[120px] h-[40px] object-contain">
+            </a>
+            <a href="#" class="block">
+              <img src="img/appgallery.png" alt="App Gallery" class="w-[120px] h-[40px] object-contain">
+            </a>
+          </div>
+        </div>
+        <!-- İletişim -->
+        <div>
+          <h4 class="font-semibold mb-4">İletişim</h4>
+          <p class="flex items-center text-gray-600">
+            <i class="fab fa-whatsapp mr-2"></i>
+            <span>0850 123 4567</span>
+          </p>
+        </div>
+      </div>
+      <div class="mt-8 pt-8 border-t">
+        <div class="flex justify-center space-x-4">
+          <img src="img/is.png" alt="İş Bankası" class="w-[60px] h-[30px] object-contain">
+          <img src="img/troy.png" alt="Troy" class="w-[60px] h-[30px] object-contain">
+          <img src="img/visa.png" alt="Visa" class="w-[60px] h-[30px] object-contain">
+          <img src="img/ms.jpg" alt="Mastercard" class="w-[60px] h-[30px] object-contain">
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button id="backToTop" class="fixed bottom-8 right-8 bg-primary text-white w-12 h-12 flex items-center justify-center rounded-full opacity-0 transition-opacity">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+  <script src="script.js"></script>
+  <script>
+    // Basit örnek: Yorum gönderildiğinde formu sıfırlayalım.
+    document.getElementById('commentForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const comment = document.getElementById('commentInput').value.trim();
+      if(comment) {
+        // Burada sunucuya yorum gönderme işlemi yapılabilir.
+        alert('Yorumunuz gönderildi!');
+        document.getElementById('commentForm').reset();
+      } else {
+        alert('Lütfen yorumunuzu yazın.');
+      }
+    });
+  </script>
+</body>
+</html>

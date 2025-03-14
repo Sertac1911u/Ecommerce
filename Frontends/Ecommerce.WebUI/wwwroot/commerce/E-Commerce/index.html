@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Ticaret Sitesi</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="font-[Poppins]">
+    <!-- NAVBAR -->
+    <nav class="bg-white shadow-md fixed w-full top-0 z-50">
+        <div class="container mx-auto px-32">
+            <!-- Upper Nav -->
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <a href="index.html" class="text-primary text-2xl font-bold">E-Market</a>
+                <!-- Center Section -->
+                <div class="flex items-center flex-1 mx-8">
+                    <!-- Location: Biraz sola yakın ve "Adres Yok" yazıyor -->
+                    <a href="login.html" class="flex items-center mr-4 text-gray-600 hover:text-primary">
+                        <i class="fas fa-location-dot mr-2"></i>
+                        <span class="truncate-address">
+                          Akay Sokak No11 Daire 8 İstanbul Cekmeköy
+                        </span>
+                      </a>
+                      
+                    <!-- Search Bar -->
+                    <div class="flex-1 relative">
+                        <input type="text" placeholder="Ürün, kategori veya marka ara..."
+                               class="w-full py-2 px-4 border border-gray-300 rounded-lg focus:outline-none focus:border-primary">
+                        <button class="absolute right-3 top-2 text-gray-400 hover:text-primary">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <!-- Right Section: Giriş Yap, İadeler ve Siparişler, Sepet -->
+                <div class="flex items-center space-x-6">
+                    <a href="login.html" class="bg-primary text-white py-2 px-4 rounded transition hover:bg-white">
+                        Giriş Yap
+                    </a>
+                    <!-- <div class="relative group inline-block">
+                        <a href="profile.html" class="bg-primary text-white py-2 px-4 rounded transition hover:bg-white flex items-center">
+                          <i class="fa fa-user mr-2"></i>
+                          <span>Kullanıcı İsmi</span>
+                        </a>
+                        <div class="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-50">
+                          <a href="#" class="block px-4 py-2 hover:bg-gray-100">Kullanıcı Bilgileri</a>
+                          <a href="#" class="block px-4 py-2 hover:bg-gray-100">Siparişler</a>
+                          <a href="#" class="block px-4 py-2 hover:bg-gray-100">Beğendiklerim</a>
+                          <a href="#" class="block px-4 py-2 hover:bg-gray-100">Kuponlarım</a>
+                          <a href="#" class="block px-4 py-2 hover:bg-gray-100">Çıkış Yap</a>
+                        </div>
+                    </div> -->
+                      
+                    <a href="#" class="text-gray-600 hover:text-primary text-sm">
+                        İadeler ve Siparişler
+                    </a>
+                    <a href="cart.html" id="cartIcon" class="text-gray-600 hover:text-primary relative">
+                        <i class="fas fa-shopping-cart text-xl"></i>
+                        <span class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 text-xs flex items-center justify-center">3</span>
+                      </a>
+                      
+                </div>
+            </div>
+            <!-- Categories: Her kategori arasında hover'da ince çizgi -->
+            <div class="border-t">
+                <ul class="flex justify-between py-3 text-sm">
+                    <li><a href="#" class="hover:text-primary px-2 hover:underline">Elektronik</a></li>
+                    <li><a href="#" class="hover:text-primary px-2 hover:underline">Moda</a></li>
+                    <li><a href="#" class="hover:text-primary px-2 hover:underline">Ev & Yaşam</a></li>
+                    <li><a href="#" class="hover:text-primary px-2 hover:underline">Spor</a></li>
+                    <li><a href="#" class="hover:text-primary px-2 hover:underline">Çok Satanlar</a></li>
+                    <li><a href="#" class="hover:text-primary px-2 hover:underline">Çocuk</a></li>
+                    <li><a href="#" class="hover:text-primary px-2 hover:underline">Kozmetik</a></li>
+                    <li><a href="#" class="hover:text-primary px-2 hover:underline">Süpermarket</a></li>
+                    <li><a href="#" class="hover:text-primary px-2 hover:underline">Kitap & Hobi</a></li>
+                    <li><a href="#" class="hover:text-primary px-2 hover:underline">Yapı Market</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- ANA İÇERİK (Soldan ve sağdan eşit padding) -->
+    <main class="container mx-auto px-32 mt-40">
+        <!-- Popüler Ürünler -->
+        <section class="mb-12">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-2xl font-semibold">Popüler Ürünler</h2>
+                <!-- Slider okları -->
+
+            </div>
+            <div class="relative products-slider overflow-hidden">
+                <!-- Sol Ok -->
+                <button class="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-gray-100 w-10 h-10 flex items-center justify-center rounded-full hover:bg-primary hover:text-white transition slide-left">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <!-- Slider İçeriği -->
+                <div class="flex space-x-4 transition-transform duration-300">
+                    <!-- Ürün Kartı 1 -->
+                    <div class="product-card w-64 border rounded-lg p-4 flex-shrink-0 group hover:shadow-lg transition-shadow duration-300">
+                        <div class="relative">
+                            <a href="product.html">
+                                <img src="img/iphone13pro.avif" alt="Ürün" class="w-full h-48 object-contain rounded-lg">
+                            </a>
+                            <button class="absolute top-2 right-2 heart-btn">
+                                <i class="far fa-heart text-xl"></i>
+                              </button>
+                              
+                        </div>
+                        <div class="mt-4">
+                            <a href="product.html" class="hover:text-primary transition-colors">
+                                <h3 class="font-medium">iPhone 13 Pro</h3>
+                            </a>
+                            <div class="flex items-center mt-1">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <span class="ml-1 text-xs">4.8 (254)</span>
+                            </div>
+                            <p class="text-lg font-bold mt-2">24.999 TL</p>
+                            <button class="add-to-cart w-full mt-2 bg-primary text-white py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
+                                Sepete Ekle
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Ürün Kartı 2 -->
+                    <div class="product-card w-64 border rounded-lg p-4 flex-shrink-0 group hover:shadow-lg transition-shadow duration-300">
+                        <div class="relative">
+                            <a href="product.html">
+                                <img src="img/s21.avif" alt="Ürün" class="w-full h-48 object-contain rounded-lg">
+                            </a>
+                            <button class="absolute top-2 right-2 heart-btn hover:text-red-500">
+                                <i class="far fa-heart text-xl"></i>
+                            </button>
+                        </div>
+                        <div class="mt-4">
+                            <a href="product.html" class="hover:text-primary transition-colors">
+                                <h3 class="font-medium">Samsung Galaxy S21</h3>
+                            </a>
+                            <div class="flex items-center mt-1">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <span class="ml-1 text-xs">4.5 (180)</span>
+                            </div>
+                            <p class="text-lg font-bold mt-2">18.999 TL</p>
+                            <button class="add-to-cart w-full mt-2 bg-primary text-white py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
+                                Sepete Ekle
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Ürün Kartı 3 -->
+                    <div class="product-card w-64 border rounded-lg p-4 flex-shrink-0 group hover:shadow-lg transition-shadow duration-300">
+                        <div class="relative">
+                            <a href="product.html">
+                                <img src="img/huawip40.avif" alt="Ürün" class="w-full h-48 object-contain rounded-lg">
+                            </a>
+                            <button class="absolute top-2 right-2 heart-btn hover:text-red-500">
+                                <i class="far fa-heart text-xl"></i>
+                            </button>
+                        </div>
+                        <div class="mt-4">
+                            <a href="product.html" class="hover:text-primary transition-colors">
+                                <h3 class="font-medium">Huawei P40</h3>
+                            </a>
+                            <div class="flex items-center mt-1">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <span class="ml-1 text-xs">4.3 (132)</span>
+                            </div>
+                            <p class="text-lg font-bold mt-2">15.499 TL</p>
+                            <button class="add-to-cart w-full mt-2 bg-primary text-white py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
+                                Sepete Ekle
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Ürün Kartı 4 -->
+                    <div class="product-card w-64 border rounded-lg p-4 flex-shrink-0 group hover:shadow-lg transition-shadow duration-300">
+                        <div class="relative">
+                            <a href="product.html">
+                                <img src="img/mi11.jpeg" alt="Ürün" class="w-full h-48 object-contain rounded-lg">
+                            </a>
+                            <button class="absolute top-2 right-2 heart-btn hover:text-red-500">
+                                <i class="far fa-heart text-xl"></i>
+                            </button>
+                        </div>
+                        <div class="mt-4">
+                            <a href="product.html" class="hover:text-primary transition-colors">
+                                <h3 class="font-medium">Xiaomi Mi 11</h3>
+                            </a>
+                            <div class="flex items-center mt-1">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <span class="ml-1 text-xs">4.6 (210)</span>
+                            </div>
+                            <p class="text-lg font-bold mt-2">13.999 TL</p>
+                            <button class="add-to-cart w-full mt-2 bg-primary text-white py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
+                                Sepete Ekle
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Ürün Kartı 5 -->
+                    <div class="product-card w-64 border rounded-lg p-4 flex-shrink-0 group hover:shadow-lg transition-shadow duration-300">
+                        <div class="relative">
+                            <a href="product.html">
+                                <img src="img/defter.jpg" alt="Ürün" class="w-full h-48 object-cover rounded-lg">
+                            </a>
+                            <button class="absolute top-2 right-2 heart-btn hover:text-red-500">
+                                <i class="far fa-heart text-xl"></i>
+                            </button>
+                        </div>
+                        <div class="mt-4">
+                            <a href="product.html" class="hover:text-primary transition-colors">
+                                <h3 class="font-medium">Az Kullanılmış Defter</h3>
+                            </a>
+                            <div class="flex items-center mt-1">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <span class="ml-1 text-xs">4.7 (190)</span>
+                            </div>
+                            <p class="text-lg font-bold mt-2">19.499 TL</p>
+                            <button class="add-to-cart w-full mt-2 bg-primary text-white py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
+                                Sepete Ekle
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-card w-64 border rounded-lg p-4 flex-shrink-0 group hover:shadow-lg transition-shadow duration-300">
+                        <div class="relative">
+                            <a href="product.html">
+                                <img src="img/kablolukulakluk.png" alt="Ürün" class="w-full h-48 object-contain rounded-lg">
+                            </a>
+                            <button class="absolute top-2 right-2 heart-btn hover:text-red-500">
+                                <i class="far fa-heart text-xl"></i>
+                            </button>
+                        </div>
+                        <div class="mt-4">
+                            <a href="product.html" class="hover:text-primary transition-colors">
+                                <h3 class="font-medium">Kablolu Kulaklık</h3>
+                            </a>
+                            <div class="flex items-center mt-1">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <span class="ml-1 text-xs">4.7 (190)</span>
+                            </div>
+                            <p class="text-lg font-bold mt-2">19.499 TL</p>
+                            <button class="add-to-cart w-full mt-2 bg-primary text-white py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
+                                Sepete Ekle
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-card w-64 border rounded-lg p-4 flex-shrink-0 group hover:shadow-lg transition-shadow duration-300">
+                        <div class="relative">
+                            <a href="product.html">
+                                <img src="img/tırnak.avif" alt="Ürün" class="w-full h-48 object-contain rounded-lg">
+                            </a>
+                            <button class="absolute top-2 right-2 heart-btn hover:text-red-500">
+                                <i class="far fa-heart text-xl"></i>
+                            </button>
+                        </div>
+                        <div class="mt-4">
+                            <a href="product.html" class="hover:text-primary transition-colors">
+                                <h3 class="font-medium">Tırnak Makası</h3>
+                            </a>
+                            <div class="flex items-center mt-1">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <span class="ml-1 text-xs">4.7 (190)</span>
+                            </div>
+                            <p class="text-lg font-bold mt-2">19.499 TL</p>
+                            <button class="add-to-cart w-full mt-2 bg-primary text-white py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
+                                Sepete Ekle
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-card w-64 border rounded-lg p-4 flex-shrink-0 group hover:shadow-lg transition-shadow duration-300">
+                        <div class="relative">
+                            <a href="product.html">
+                                <img src="img/mac.avif" alt="Ürün" class="w-full h-48 object-contain rounded-lg">
+                            </a>
+                            <button class="absolute top-2 right-2 heart-btn hover:text-red-500">
+                                <i class="far fa-heart text-xl"></i>
+                            </button>
+                        </div>
+                        <div class="mt-4">
+                            <a href="product.html" class="hover:text-primary transition-colors">
+                                <h3 class="font-medium">MacBook A4</h3>
+                            </a>
+                            <div class="flex items-center mt-1">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <span class="ml-1 text-xs">4.7 (190)</span>
+                            </div>
+                            <p class="text-lg font-bold mt-2">19.499 TL</p>
+                            <button class="add-to-cart w-full mt-2 bg-primary text-white py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity">
+                                Sepete Ekle
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Sağ Ok -->
+                <button class="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-gray-100 w-10 h-10 flex items-center justify-center rounded-full hover:bg-primary hover:text-white transition slide-right">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- Banner -->
+        <section class="mb-12">
+            <img src="https://picsum.photos/1200/300?random=banner" alt="Banner" class="w-full h-48 object-cover rounded-lg">
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-100 mt-16">
+        <div class="container mx-auto px-32 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Şirket Bilgileri -->
+                <div>
+                    <h4 class="font-semibold mb-4">Şirket</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-primary">Hakkımızda</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary">Müşteri Hizmetleri</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary">Kariyer</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary">İletişim</a></li>
+                    </ul>
+                </div>
+                <!-- Sosyal Medya -->
+                <div>
+                    <h4 class="font-semibold mb-4">Bizi Takip Edin</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-600 hover:text-primary"><i class="fab fa-instagram text-2xl"></i></a>
+                        <a href="#" class="text-gray-600 hover:text-primary"><i class="fab fa-youtube text-2xl"></i></a>
+                        <a href="#" class="text-gray-600 hover:text-primary"><i class="fab fa-tiktok text-2xl"></i></a>
+                        <a href="#" class="text-gray-600 hover:text-primary"><i class="fab fa-twitter text-2xl"></i></a>
+                        <a href="#" class="text-gray-600 hover:text-primary"><i class="fab fa-linkedin text-2xl"></i></a>
+                    </div>
+                </div>
+                <!-- Mobil Uygulamalar -->
+                <div>
+                    <h4 class="font-semibold mb-4">Mobil Uygulamalar</h4>
+                    <div class="space-y-2">
+                        <a href="#" class="block">
+                            <img src="img/google.webp" alt="App Store" class="w-[120px] h-[40px] object-contain">
+                        </a>
+                        <a href="#" class="block">
+                            <img src="img/appstore.webp" alt="Play Store" class="w-[120px] h-[40px] object-contain">
+                        </a>
+                        <a href="#" class="block">
+                            <img src="img/appgallery.png" alt="App Gallery" class="w-[120px] h-[40px] object-contain">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- İletişim -->
+                <div>
+                    <h4 class="font-semibold mb-4">İletişim</h4>
+                    <p class="flex items-center text-gray-600">
+                        <i class="fab fa-whatsapp mr-2"></i>
+                        <span>0850 123 4567</span>
+                    </p>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t">
+                <div class="flex justify-center space-x-4">
+                    <img src="img/is.png" alt="İş Bankası" class="w-[60px] h-[30px] object-contain">
+                    <img src="img/troy.png" alt="Troy" class="w-[60px] h-[30px] object-contain">
+                    <img src="img/visa.png" alt="Visa" class="w-[60px] h-[30px] object-contain">
+                    <img src="img/ms.jpg" alt="Mastercard" class="w-[60px] h-[30px] object-contain">
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <button id="backToTop" class="fixed bottom-8 right-8 bg-primary text-white w-12 h-12 flex items-center justify-center rounded-full opacity-0 transition-opacity">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+
+    <script src="script.js"></script>
+</body>
+</html>

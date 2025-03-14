@@ -1,0 +1,129 @@
+﻿<h2 class="text-2xl font-semibold mb-6">Öne Çıkan Ürünler</h2>
+<div class="max-w-full w-full mx-auto bg-white rounded-lg shadow-lg overflow-hidden mb-8">
+    <div class="relative">
+        <div id="carousel-container" class="relative h-64 md:h-96 overflow-hidden">
+            <!-- Carousel Items -->
+            <div class="carousel-item absolute inset-0 transition-opacity duration-500 flex items-center justify-center">
+                <img src="~/commerce/E-Commerce/img/sucveceza.jpg" alt="Slide 1" class="object-cover w-full h-full">
+            </div>
+            <div class="carousel-item absolute inset-0 transition-opacity duration-500 flex items-center justify-center opacity-0">
+                <img src="~/commerce/E-Commerce/img/defter.jpg" alt="Slide 2" class="object-cover w-full h-full">
+            </div>
+            <div class="carousel-item absolute inset-0 transition-opacity duration-500 flex items-center justify-center opacity-0">
+                <img src="~/commerce/E-Commerce/img/kablolukulakluk.png" alt="Slide 3" class="object-cover w-full h-full">
+            </div>
+            <div class="carousel-item absolute inset-0 transition-opacity duration-500 flex items-center justify-center opacity-0">
+                <img src="~/commerce/E-Commerce/img/dericeket.jpg" alt="Slide 4" class="object-cover w-full h-full">
+            </div>
+        </div>
+
+
+        <!-- Navigation Arrows -->
+        <button id="prev-btn" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 hover:bg-opacity-75 rounded-full p-2 focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+        </button>
+        <button id="next-btn" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white bg-opacity-50 hover:bg-opacity-75 rounded-full p-2 focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Indicators -->
+    <div id="indicators" class="flex justify-center p-4">
+        <span class="carousel-indicator h-3 w-3 rounded-full bg-blue-600 mx-1 cursor-pointer"></span>
+        <span class="carousel-indicator h-3 w-3 rounded-full bg-gray-300 mx-1 cursor-pointer"></span>
+        <span class="carousel-indicator h-3 w-3 rounded-full bg-gray-300 mx-1 cursor-pointer"></span>
+        <span class="carousel-indicator h-3 w-3 rounded-full bg-gray-300 mx-1 cursor-pointer"></span>
+    </div>
+</div>
+<script>
+     document.addEventListener('DOMContentLoaded', function() {
+      const carouselItems = document.querySelectorAll('.carousel-item');
+      const indicators = document.querySelectorAll('.carousel-indicator');
+      const prevBtn = document.getElementById('prev-btn');
+      const nextBtn = document.getElementById('next-btn');
+      let currentIndex = 0;
+      let interval;
+
+      // Fonksiyon: Slaytları güncelle
+      function updateCarousel(newIndex) {
+        // Tüm slaytları gizle
+        carouselItems.forEach(item => {
+          item.classList.add('opacity-0');
+        });
+
+        // Tüm indikatörleri deaktif et
+        indicators.forEach(indicator => {
+          indicator.classList.remove('bg-blue-600');
+          indicator.classList.add('bg-gray-300');
+        });
+
+        // Seçilen slaytı göster
+        carouselItems[newIndex].classList.remove('opacity-0');
+
+        // Seçilen indikatörü aktif et
+        indicators[newIndex].classList.remove('bg-gray-300');
+        indicators[newIndex].classList.add('bg-blue-600');
+
+        // Geçerli indeksi güncelle
+        currentIndex = newIndex;
+      }
+
+      // Bir sonraki slayta geç
+      function nextSlide() {
+        let newIndex = currentIndex + 1;
+        if (newIndex >= carouselItems.length) {
+          newIndex = 0;
+        }
+        updateCarousel(newIndex);
+      }
+
+      // Bir önceki slayta geç
+      function prevSlide() {
+        let newIndex = currentIndex - 1;
+        if (newIndex < 0) {
+          newIndex = carouselItems.length - 1;
+        }
+        updateCarousel(newIndex);
+      }
+
+      // Otomatik geçiş için interval başlat
+      function startAutoSlide() {
+        interval = setInterval(nextSlide, 5000); // 5 saniyede bir
+      }
+
+      // Otomatik geçişi durdur
+      function stopAutoSlide() {
+        clearInterval(interval);
+      }
+
+      // İleri butonu
+      nextBtn.addEventListener('click', function() {
+        stopAutoSlide();
+        nextSlide();
+        startAutoSlide();
+      });
+
+      // Geri butonu
+      prevBtn.addEventListener('click', function() {
+        stopAutoSlide();
+        prevSlide();
+        startAutoSlide();
+      });
+
+      // İndikatör butonları
+      indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', function() {
+          stopAutoSlide();
+          updateCarousel(index);
+          startAutoSlide();
+        });
+      });
+
+      // Otomatik geçişi başlat
+      startAutoSlide();
+    });
+</script>

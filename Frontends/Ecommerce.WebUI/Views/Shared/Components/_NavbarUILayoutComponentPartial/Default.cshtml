@@ -1,0 +1,72 @@
+﻿<nav class="bg-white shadow-md fixed w-full top-0 z-50">
+    <div class="container mx-auto px-32">
+        <!-- Upper Nav -->
+        <div class="flex items-center justify-between h-16">
+            <!-- Logo -->
+            <a href="index.html" class="text-primary text-2xl font-bold">E-Market</a>
+            <!-- Center Section -->
+            <div class="flex items-center flex-1 mx-8">
+                <!-- Location: Biraz sola yakın ve "Adres Yok" yazıyor -->
+                <a href="login.html" class="flex items-center mr-4 text-gray-600 hover:text-primary">
+                    <i class="fas fa-location-dot mr-2"></i>
+                    <span class="truncate-address">
+                        Akay Sokak No11 Daire 8 İstanbul Cekmeköy
+                    </span>
+                </a>
+
+                <!-- Search Bar -->
+                <div class="flex-1 relative">
+                    <input type="text" placeholder="Ürün, kategori veya marka ara..."
+                           class="w-full py-2 px-4 border border-gray-300 rounded-lg focus:outline-none focus:border-primary">
+                    <button class="absolute right-3 top-2 text-gray-400 hover:text-primary">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Right Section: Giriş Yap, İadeler ve Siparişler, Sepet -->
+            <div class="flex items-center space-x-6">
+                <a href="login.html" class="bg-primary text-white py-2 px-4 rounded transition hover:bg-white">
+                    Giriş Yap
+                </a>
+                <!-- <div class="relative group inline-block">
+                    <a href="profile.html" class="bg-primary text-white py-2 px-4 rounded transition hover:bg-white flex items-center">
+                      <i class="fa fa-user mr-2"></i>
+                      <span>Kullanıcı İsmi</span>
+                    </a>
+                    <div class="absolute left-0 mt-2 w-48 bg-white border border-gray-200 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-50">
+                      <a href="#" class="block px-4 py-2 hover:bg-gray-100">Kullanıcı Bilgileri</a>
+                      <a href="#" class="block px-4 py-2 hover:bg-gray-100">Siparişler</a>
+                      <a href="#" class="block px-4 py-2 hover:bg-gray-100">Beğendiklerim</a>
+                      <a href="#" class="block px-4 py-2 hover:bg-gray-100">Kuponlarım</a>
+                      <a href="#" class="block px-4 py-2 hover:bg-gray-100">Çıkış Yap</a>
+                    </div>
+                </div> -->
+
+                <a href="#" class="text-gray-600 hover:text-primary text-sm">
+                    İadeler ve Siparişler
+                </a>
+                <a href="cart.html" id="cartIcon" class="text-gray-600 hover:text-primary relative">
+                    <i class="fas fa-shopping-cart text-xl"></i>
+                    <span class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 text-xs flex items-center justify-center">3</span>
+                </a>
+
+            </div>
+        </div>
+        <!-- Categories: Her kategori arasında hover'da ince çizgi -->
+        <div class="border-t">
+            <ul class="flex justify-between py-3 text-sm">
+                <li><a href="#" class="hover:text-primary px-2 hover:underline">Elektronik</a></li>
+                <li><a href="#" class="hover:text-primary px-2 hover:underline">Moda</a></li>
+                <li><a href="#" class="hover:text-primary px-2 hover:underline">Ev & Yaşam</a></li>
+                <li><a href="#" class="hover:text-primary px-2 hover:underline">Spor</a></li>
+                <li><a href="#" class="hover:text-primary px-2 hover:underline">Çok Satanlar</a></li>
+                <li><a href="#" class="hover:text-primary px-2 hover:underline">Çocuk</a></li>
+                <li><a href="#" class="hover:text-primary px-2 hover:underline">Kozmetik</a></li>
+                <li><a href="#" class="hover:text-primary px-2 hover:underline">Süpermarket</a></li>
+                <li><a href="#" class="hover:text-primary px-2 hover:underline">Kitap & Hobi</a></li>
+                <li><a href="#" class="hover:text-primary px-2 hover:underline">Yapı Market</a></li>
+            </ul>
+        </div>
+
+    </div>
+</nav>

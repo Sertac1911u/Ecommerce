@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giriş Yap - E-Market</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Icons (Font Awesome) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="font-[Poppins] bg-gray-50">
+    <div class="min-h-screen flex flex-col items-center justify-center p-4">
+        <!-- Logo -->
+        <a href="index.html" class="mb-8">
+            <h1 class="text-primary text-4xl font-bold">E-Market</h1>
+        </a>
+
+        <!-- Login/Register Container -->
+        <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-6">
+            <!-- Tabs -->
+            <div class="flex border-b mb-6">
+                <button class="flex-1 py-3 text-center font-medium tab-active" data-tab="login">
+                    Giriş Yap
+                </button>
+                <button class="flex-1 py-3 text-center font-medium text-gray-500 hover:text-primary" data-tab="register">
+                    Üye Ol
+                </button>
+            </div>
+
+            <!-- Login Form -->
+            <div id="loginForm" class="tab-content">
+                <form>
+                    <!-- Email -->
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-medium mb-2">
+                            E-posta Adresi
+                        </label>
+                        <input type="email"
+                               class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-primary"
+                               placeholder="ornek@email.com">
+                    </div>
+
+                    <!-- Password -->
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-medium mb-2">
+                            Şifre
+                        </label>
+                        <div class="relative">
+                            <input type="password"
+                                   class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-primary"
+                                   placeholder="••••••••">
+                            <button type="button"
+                                    class="absolute right-3 top-2.5 text-gray-400 hover:text-primary"
+                                    onclick="togglePassword(this)">
+                                <i class="far fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Forgot Password -->
+                    <div class="text-right mb-4">
+                        <a href="#" class="text-sm text-primary hover:underline">
+                            Şifremi Unuttum
+                        </a>
+                    </div>
+
+                    <!-- Login Button -->
+                    <button type="submit"
+                            class="w-full bg-primary text-white py-2 rounded-lg hover:bg-primary-dark hover:opacity-75 transition">
+                        Giriş Yap
+                    </button>
+
+                    <!-- Phone Login -->
+                    <div class="mt-4">
+                        <button type="button"
+                                class="w-full border border-primary text-primary py-2 rounded-lg hover:opacity-75 transition">
+                            Telefon Numarası ile Giriş Yap
+                        </button>
+                    </div>
+
+                    <!-- Social Login -->
+                    <div class="mt-6">
+                        <div class="relative">
+                            <div class="absolute inset-0 flex items-center">
+                                <div class="w-full border-t border-gray-300"></div>
+                            </div>
+                            <div class="relative flex justify-center text-sm">
+                                <span class="px-2 bg-white text-gray-500">
+                                    veya
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 grid grid-cols-3 gap-3">
+                            <button type="button"
+                                    class="flex justify-center items-center py-2 px-4 border rounded-lg hover:bg-gray-50 transition">
+                                <i class="fab fa-google text-2xl transition-transform hover:scale-110"></i>
+                            </button>
+                            <button type="button"
+                                    class="flex justify-center items-center py-2 px-4 border rounded-lg hover:bg-gray-50 transition">
+                                <i class="fab fa-facebook text-2xl transition-transform hover:scale-110"></i>
+                            </button>
+                            <button type="button"
+                                    class="flex justify-center items-center py-2 px-4 border rounded-lg hover:bg-gray-50 transition">
+                                <i class="fab fa-apple text-2xl transition-transform hover:scale-110"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Register Form -->
+            <!-- Register Form -->
+<div id="registerForm" class="tab-content hidden">
+    <!-- Adım 1: E-posta Gir -->
+    <div id="regStep1" class="registration-step">
+      <form id="emailForm">
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-medium mb-2">
+            E-posta Adresi
+          </label>
+          <input type="email"
+                 id="regEmail"
+                 class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-primary"
+                 placeholder="ornek@email.com">
+        </div>
+        <button type="button"
+                id="emailNextBtn"
+                class="w-full bg-primary text-white py-2 rounded-lg hover:bg-primary-dark hover:opacity-75 transition">
+          Devam Et
+        </button>
+      </form>
+    </div>
+  
+    <!-- Adım 2: Doğrulama Kodu Gir -->
+    <div id="regStep2" class="registration-step hidden">
+        <form id="codeForm">
+            <div class="mb-4">
+              <label class="block text-gray-700 text-m font-medium mb-2">
+                Doğrulama Kodu
+              </label>
+              <div id="codeInputs" class="flex justify-center space-x-3.5">
+                <input type="text" maxlength="1" class="code-input w-14 h-14 text-center border rounded-lg" />
+                <input type="text" maxlength="1" class="code-input w-14 h-14 text-center border rounded-lg" />
+                <input type="text" maxlength="1" class="code-input w-14 h-14 text-center border rounded-lg" />
+                <input type="text" maxlength="1" class="code-input w-14 h-14 text-center border rounded-lg" />
+                <input type="text" maxlength="1" class="code-input w-14 h-14 text-center border rounded-lg" />
+                <input type="text" maxlength="1" class="code-input w-14 h-14 text-center border rounded-lg" />
+              </div>
+            </div>
+            <button type="button"
+                    id="codeNextBtn"
+                    class="w-full bg-primary text-white py-2 rounded-lg hover:bg-primary-dark hover:opacity-75 transition">
+              Devam Et
+            </button>
+            <div class="mt-4 text-center">
+              <button type="button" id="resendCodeBtn" class="text-primary hover:underline" disabled>
+                Kodu Tekrar Gönder (60)
+              </button>
+            </div>
+          </form>
+          
+    </div>
+  
+    <!-- Adım 3: Kişisel Bilgiler Gir -->
+    <div id="regStep3" class="registration-step hidden">
+      <form id="detailsForm">
+        <!-- Ad, Soyad -->
+        <div class="mb-4 grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-gray-700 text-sm font-medium mb-2">Adınız</label>
+            <input type="text" id="regFirstName" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-primary" placeholder="Adınız">
+          </div>
+          <div>
+            <label class="block text-gray-700 text-sm font-medium mb-2">Soyadınız</label>
+            <input type="text" id="regLastName" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-primary" placeholder="Soyadınız">
+          </div>
+        </div>
+        <!-- Kullanıcı Adı -->
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-medium mb-2">Kullanıcı Adı</label>
+          <input type="text" id="regUsername" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-primary" placeholder="Kullanıcı Adınız">
+        </div>
+        <!-- Doğum Tarihi ve Cinsiyet -->
+        <div class="mb-4 grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-gray-700 text-sm font-medium mb-2">Doğum Tarihi</label>
+            <input type="date" id="regBirthdate" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-primary">
+          </div>
+          <div>
+            <label class="block text-gray-700 text-sm font-medium mb-2">Cinsiyet</label>
+            <select id="regGender" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-primary">
+              <option value="">Seçiniz</option>
+              <option value="erkek">Erkek</option>
+              <option value="kadin">Kadın</option>
+              <option value="diger">Diğer</option>
+            </select>
+          </div>
+        </div>
+        <!-- Şifre ve Şifre Tekrar -->
+        <div class="mb-4 grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-gray-700 text-sm font-medium mb-2">Şifre</label>
+            <input type="password" id="regPassword" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-primary" placeholder="Şifre">
+          </div>
+          <div>
+            <label class="block text-gray-700 text-sm font-medium mb-2">Şifre Tekrar</label>
+            <input type="password" id="regPasswordConfirm" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-primary" placeholder="Şifre Tekrar">
+          </div>
+        </div>
+        <!-- Sözleşme Onayı -->
+        <div class="mb-4">
+          <label class="inline-flex items-center">
+            <input type="checkbox" id="regTerms" class="form-checkbox">
+            <span class="ml-2 text-gray-700 text-sm">Kullanım Sözleşmesini kabul ediyorum</span>
+          </label>
+        </div>
+        <button type="submit" class="w-full bg-primary text-white py-2 rounded-lg hover:bg-primary-dark hover:opacity-75 transition">
+          Kaydol
+        </button>
+      </form>
+    </div>
+  </div>
+  
+        </div>
+    </div>
+
+    <script>
+        // Adım 1: E-posta formundan sonraki aşamaya geçiş
+document.getElementById('emailNextBtn').addEventListener('click', function() {
+  const emailInput = document.getElementById('regEmail').value.trim();
+  if(emailInput === '') {
+    alert('Lütfen e-posta adresinizi giriniz.');
+    return;
+  }
+  // E-posta gönderimi veya doğrulama kodu gönderimi işlemi burada yapılabilir.
+  document.getElementById('regStep1').classList.add('hidden');
+  document.getElementById('regStep2').classList.remove('hidden');
+});
+
+// Adım 2: Doğrulama kodu formundaki input davranışları
+const codeInputs = document.querySelectorAll('.code-input');
+codeInputs.forEach((input, index) => {
+  input.addEventListener('input', (e) => {
+    if (input.value.length === 1) {
+      // Eğer bir sonraki input varsa odakla
+      if (index < codeInputs.length - 1) {
+        codeInputs[index + 1].focus();
+      }
+    }
+  });
+  
+  input.addEventListener('keydown', (e) => {
+    // Backspace ile önceki inputa geçiş
+    if(e.key === "Backspace" && input.value === "" && index > 0) {
+      codeInputs[index - 1].focus();
+    }
+  });
+});
+
+// Adım 2: "Devam Et" butonu ile kod kontrolü
+document.getElementById('codeNextBtn').addEventListener('click', function() {
+  // Tüm inputlardaki değeri alıp birleştirebiliriz
+  let code = "";
+  codeInputs.forEach(input => {
+    code += input.value;
+  });
+  if(code.length < 6) {
+    alert('Lütfen doğrulama kodunun tamamını giriniz.');
+    return;
+  }
+  // Doğrulama kodu kontrol işlemleri burada yapılabilir.
+  document.getElementById('regStep2').classList.add('hidden');
+  document.getElementById('regStep3').classList.remove('hidden');
+});
+
+// Resend Code (Kodu Tekrar Gönder) İşlemi ve Geri Sayım
+let resendTime = 60;
+const resendBtn = document.getElementById('resendCodeBtn');
+
+function startResendTimer() {
+  resendBtn.disabled = true;
+  resendBtn.textContent = `Kodu Tekrar Gönder (${resendTime})`;
+  const timer = setInterval(() => {
+    resendTime--;
+    resendBtn.textContent = `Kodu Tekrar Gönder (${resendTime})`;
+    if (resendTime <= 0) {
+      clearInterval(timer);
+      resendBtn.disabled = false;
+      resendBtn.textContent = 'Kodu Tekrar Gönder';
+      resendTime = 60; // zamanlayıcıyı sıfırla
+    }
+  }, 1000);
+}
+
+// Sayfa yüklendiğinde veya kod gönderiminde timer başlatılır
+startResendTimer();
+
+resendBtn.addEventListener('click', () => {
+  // Doğrulama kodunu tekrar gönderme işlemini burada yapabilirsiniz.
+  startResendTimer();
+});
+
+        // Toggle password visibility
+        function togglePassword(button) {
+            const input = button.previousElementSibling;
+            const icon = button.querySelector('i');
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                input.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        }
+
+        // Tab switching
+        const tabs = document.querySelectorAll('[data-tab]');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active state from all tabs
+                tabs.forEach(t => {
+                    t.classList.remove('tab-active');
+                    t.classList.add('text-gray-500');
+                });
+                // Add active state to clicked tab
+                tab.classList.add('tab-active');
+                tab.classList.remove('text-gray-500');
+                // Hide all tab contents and show the selected one
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.add('hidden');
+                });
+                document.getElementById(`${tab.dataset.tab}Form`).classList.remove('hidden');
+            });
+        });
+    </script>
+</body>
+</html>

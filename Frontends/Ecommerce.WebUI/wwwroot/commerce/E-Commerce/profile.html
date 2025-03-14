@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profil - E-Market</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="font-[Poppins] bg-gray-50">
+  <!-- Navbar (Ortak Navbar) -->
+  <nav class="bg-white shadow-md fixed w-full top-0 z-50">
+    <div class="container mx-auto px-32">
+      <div class="flex items-center justify-between h-16">
+        <a href="index.html" class="text-primary text-2xl font-bold">E-Market</a>
+        <div class="flex-1 mx-8">
+          <div class="relative">
+            <input type="text" placeholder="Ürün, kategori veya marka ara..." class="w-full py-2 px-4 border border-gray-300 rounded-lg focus:outline-none focus:border-primary">
+            <button class="absolute right-3 top-2 text-gray-400 hover:text-primary">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+        <div class="flex items-center space-x-6">
+          <a href="profile.html" class="text-primary font-medium">Profil</a>
+          <a href="cart.html" class="relative text-gray-600 hover:text-primary">
+            <i class="fas fa-shopping-cart text-xl"></i>
+            <span class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 text-xs flex items-center justify-center">3</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="container mx-auto px-32 mt-32 mb-12">
+    <div class="flex gap-8">
+      <!-- Sol Sidebar -->
+      <aside class="w-1/4 bg-white rounded-lg shadow-sm p-6 h-fit sticky top-32">
+        <div class="flex flex-col items-center">
+          <!-- Profil Resmi -->
+          <img src="img/avize.webp" alt="Profil Resmi" class="w-32 h-32 rounded-full object-cover mb-4">
+          <!-- Kullanıcı Adı -->
+          <h2 class="text-xl font-semibold mb-6">Kullanıcı Adı</h2>
+        </div>
+        <!-- Menü -->
+        <nav class="space-y-4">
+          <a href="#" class="block py-2 px-4 rounded hover:bg-primary hover:text-white transition">Siparişlerim</a>
+          <a href="#" class="block py-2 px-4 rounded bg-primary text-white transition">Kullanıcı Bilgilerim</a>
+          <a href="#" class="block py-2 px-4 rounded hover:bg-primary hover:text-white transition">Beğendiklerim</a>
+          <a href="#" class="block py-2 px-4 rounded hover:bg-primary hover:text-white transition">Kuponlarım</a>
+          <a href="#" class="block py-2 px-4 rounded hover:bg-red-500 hover:text-white transition">Çıkış</a>
+        </nav>
+      </aside>
+
+      <!-- Sağ İçerik (Profil Bilgileri Formu) -->
+      <section class="w-3/4 bg-white rounded-lg shadow-sm p-6">
+        <h2 class="text-2xl font-semibold mb-6">Kullanıcı Bilgilerim</h2>
+        <form action="#" method="post" class="space-y-8">
+          <!-- Üyelik Bilgileri Bölümü -->
+          <div class="border-b pb-6">
+            <h3 class="text-xl font-semibold mb-4">Üyelik Bilgilerim</h3>
+            <div class="grid grid-cols-2 gap-6 mb-4">
+              <div>
+                <label for="firstName" class="block text-gray-700 font-medium mb-2">Adınız</label>
+                <input type="text" id="firstName" name="firstName" value="Ahmet" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-primary">
+              </div>
+              <div>
+                <label for="lastName" class="block text-gray-700 font-medium mb-2">Soyadınız</label>
+                <input type="text" id="lastName" name="lastName" value="Yılmaz" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-primary">
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-6 mb-4">
+              <div>
+                <label for="email" class="block text-gray-700 font-medium mb-2">E-posta</label>
+                <input type="email" id="email" name="email" value="ornek@email.com" readonly class="w-full px-4 py-2 border rounded-lg bg-gray-100 cursor-not-allowed">
+              </div>
+              <div class="flex flex-col">
+                <label for="phone" class="block text-gray-700 font-medium mb-2">Cep Telefonu</label>
+                <div class="flex">
+                  <input type="text" id="phone" name="phone" value="08501234567" class="w-full px-4 py-2 border rounded-l-lg bg-gray-100">
+                  <button type="button" class="bg-primary text-white px-4 py-2 rounded-r-lg hover:bg-primary-dark">Güncelle</button>
+                </div>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-6 mb-4">
+              <div>
+                <label for="birthdate" class="block text-gray-700 font-medium mb-2">Doğum Tarihi</label>
+                <input type="date" id="birthdate" name="birthdate" value="1990-01-01" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-primary">
+              </div>
+              <div></div>
+            </div>
+            <!-- Büyük Kaydet Butonu (Üyelik Bilgileri) -->
+            <div class="pt-4">
+              <button type="submit" class="w-full bg-primary text-white py-4 rounded-lg text-lg hover:bg-primary-dark transition">Üyelik Bilgilerimi Kaydet</button>
+            </div>
+          </div>
+
+          <!-- Şifre Güncelleme ve İki Adımlı Doğrulama Bölümü -->
+          <div class="border-b pb-6">
+            <h3 class="text-xl font-semibold mb-4">Şifre Güncelleme</h3>
+            <div class="grid grid-cols-2 gap-6 mb-4">
+              <div class="col-span-2">
+                <label for="currentPassword" class="block text-gray-700 font-medium mb-2">Şu Anki Şifre</label>
+                <input type="password" id="currentPassword" name="currentPassword" placeholder="Mevcut şifreniz" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-primary">
+              </div>
+            </div>
+            <div class="grid grid-cols-2 gap-6 mb-2">
+              <div>
+                <label for="newPassword" class="block text-gray-700 font-medium mb-2">Yeni Şifre</label>
+                <input type="password" id="newPassword" name="newPassword" placeholder="Yeni şifreniz" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-primary">
+                <p class="text-xs text-gray-600 mt-1">Şifreniz en az 10 karakter olmalı, 1 büyük harf, 1 küçük harf ve rakam içermelidir.</p>
+              </div>
+              <div>
+                <label for="newPasswordConfirm" class="block text-gray-700 font-medium mb-2">Yeni Şifre (Tekrar)</label>
+                <input type="password" id="newPasswordConfirm" name="newPasswordConfirm" placeholder="Yeni şifreniz (tekrar)" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-primary">
+              </div>
+            </div>
+            <!-- İki Adımlı Doğrulama Checkboxu -->
+            <div class="flex items-center space-x-4 mt-4">
+              <label class="flex items-center">
+                <input type="checkbox" id="twoStep" class="mr-2 w-5 h-5 accent-primary">
+                <span>İki Adımlı Doğrulamayı Etkinleştir</span>
+              </label>
+            </div>
+            <div class="flex justify-end mt-4">
+              <button type="button" class="bg-primary text-white px-4 py-2 rounded hover:bg-primary-dark">Şifreyi Güncelle</button>
+            </div>
+          </div>
+
+          <!-- Hesabımı Sil Bölümü -->
+          <div class="pt-6">
+            <button type="button" class="text-red-500 hover:underline">Hesabımı Sil</button>
+          </div>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer (Ortak Footer) -->
+  <footer class="bg-gray-100 mt-16">
+    <div class="container mx-auto px-32 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <!-- Şirket Bilgileri -->
+        <div>
+          <h4 class="font-semibold mb-4">Şirket</h4>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-600 hover:text-primary">Hakkımızda</a></li>
+            <li><a href="#" class="text-gray-600 hover:text-primary">Müşteri Hizmetleri</a></li>
+            <li><a href="#" class="text-gray-600 hover:text-primary">Kariyer</a></li>
+            <li><a href="#" class="text-gray-600 hover:text-primary">İletişim</a></li>
+          </ul>
+        </div>
+        <!-- Sosyal Medya -->
+        <div>
+          <h4 class="font-semibold mb-4">Bizi Takip Edin</h4>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-600 hover:text-primary"><i class="fab fa-instagram text-2xl"></i></a>
+            <a href="#" class="text-gray-600 hover:text-primary"><i class="fab fa-youtube text-2xl"></i></a>
+            <a href="#" class="text-gray-600 hover:text-primary"><i class="fab fa-tiktok text-2xl"></i></a>
+            <a href="#" class="text-gray-600 hover:text-primary"><i class="fab fa-twitter text-2xl"></i></a>
+            <a href="#" class="text-gray-600 hover:text-primary"><i class="fab fa-linkedin text-2xl"></i></a>
+          </div>
+        </div>
+        <!-- Mobil Uygulamalar -->
+        <div>
+          <h4 class="font-semibold mb-4">Mobil Uygulamalar</h4>
+          <div class="space-y-2">
+            <a href="#" class="block">
+              <img src="img/google.webp" alt="App Store" class="w-[120px] h-[40px] object-contain">
+            </a>
+            <a href="#" class="block">
+              <img src="img/appstore.webp" alt="Play Store" class="w-[120px] h-[40px] object-contain">
+            </a>
+            <a href="#" class="block">
+              <img src="img/appgallery.png" alt="App Gallery" class="w-[120px] h-[40px] object-contain">
+            </a>
+          </div>
+        </div>
+        <!-- İletişim -->
+        <div>
+          <h4 class="font-semibold mb-4">İletişim</h4>
+          <p class="flex items-center text-gray-600">
+            <i class="fab fa-whatsapp mr-2"></i>
+            <span>0850 123 4567</span>
+          </p>
+        </div>
+      </div>
+      <div class="mt-8 pt-8 border-t">
+        <div class="flex justify-center space-x-4">
+          <img src="img/is.png" alt="İş Bankası" class="w-[60px] h-[30px] object-contain">
+          <img src="img/troy.png" alt="Troy" class="w-[60px] h-[30px] object-contain">
+          <img src="img/visa.png" alt="Visa" class="w-[60px] h-[30px] object-contain">
+          <img src="img/ms.jpg" alt="Mastercard" class="w-[60px] h-[30px] object-contain">
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button id="backToTop" class="fixed bottom-8 right-8 bg-primary text-white w-12 h-12 flex items-center justify-center rounded-full opacity-0 transition-opacity">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+  <script src="script.js"></script>
+</body>
+</html>

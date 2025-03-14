@@ -1,0 +1,232 @@
+/* Genel Reset ve Temel Ayarlar */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Root Değişkenleri (tema renkleri, fontlar vb.) */
+:root {
+  --primary-color: #3490dc;       /* Ana renk */
+  --primary-dark: #2779bd;        /* Daha koyu ana renk */
+  --text-color: #4a5568;          /* Genel metin rengi */
+  --bg-color: #f7fafc;            /* Genel arka plan rengi */
+}
+
+/* Genel Body Stili */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* Genel Link Stili */
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--primary-color);
+}
+
+/* Genel Buton Stilleri */
+button {
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+button:focus {
+  outline: none;
+}
+
+/* Form Elemanları */
+input, textarea, select {
+  font-family: inherit;
+}
+
+/* Yardımcı Sınıflar */
+.hidden {
+  display: none;
+}
+
+/* Aktif Tab Butonları */
+.tab-btn.active {
+  border-bottom: 2px solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+/* Seçili Renk Butonu */
+.color-option.border-blue-500 {
+  border-color: var(--primary-color) !important;
+}
+/* Seçilen renk butonuna outline ekle */
+.color-option.selected {
+  outline: 2px solid var(--primary-color) !important;
+  outline-offset: 2px;
+}
+
+
+/* Seçili Boyut Butonu */
+.size-option.bg-blue-500,
+.size-option.text-white {
+  background-color: var(--primary-color) !important;
+  color: #fff !important;
+}
+
+/* Navbar Stilleri */
+nav {
+  background-color: #fff;
+}
+
+nav a {
+  color: var(--text-color);
+}
+
+nav a:hover {
+  color: var(--primary-color);
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Footer Stilleri */
+footer {
+  background-color: #edf2f7;
+  color: var(--text-color);
+}
+
+/* Genel Resim Stilleri */
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* Slider Butonları */
+#prevSlide, #nextSlide {
+  font-size: 1rem;
+}
+
+/* Form Input */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"] {
+  background-color: #fff;
+  border: 1px solid #e2e8f0;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  transition: border-color 0.3s ease;
+}
+
+input:focus {
+  border-color: var(--primary-color);
+}
+
+/* Genel Buton Geçiş Efekti */
+button {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Özel Stil: Ürün Kartları, Kampanya Kartları, vs. */
+/* Bu kısımları ihtiyaçlarınıza göre genişletebilirsiniz */
+.bg-primary {
+  background-color: var(--primary-color);
+}
+
+.bg-primary-dark:hover {
+  background-color: var(--primary-dark);
+}
+
+.text-primary {
+  color: var(--primary-color);
+}
+/* Varsayılan ikon geçişi */
+i.fa-heart {
+  transition: color 0.3s ease;
+}
+
+/* Hover durumunda kırmızı renk */
+button:hover i.fa-heart {
+  color: #ef4444; /* Tailwind CSS red-500 */
+}
+
+/* Kalıcı kırmızı renk için sınıf */
+.heart-active {
+  color: #ef4444 !important;
+}
+
+/* Tıklama animasyonu */
+.animate-heart {
+  animation: heartFill 0.5s;
+}
+
+@keyframes heartFill {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+/* Uçuş animasyonu için önceden tanımlanan stiller burada */
+/* ... (Önceki kodunuzun flying image animasyonu kısmı) ... */
+
+/* Sepet animasyonu için keyframes */
+@keyframes cartBump {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Sepet ikonuna uygulanacak animasyon sınıfı */
+.cart-bump {
+  animation: cartBump 0.5s ease-in-out;
+}
+/* Flying image animasyonu için başlangıç stilleri (buton tıklamasında geçici olarak eklenecek) */
+.flying-img {
+  position: fixed;
+  z-index: 1000;
+  transition: all 1s ease-in-out;
+}
+
+/* Sepet bump animasyonu */
+@keyframes cartBump {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Sepet ikonuna uygulanacak animasyon sınıfı */
+.cart-bump {
+  animation: cartBump 0.5s ease-in-out;
+}
