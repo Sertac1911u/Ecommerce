@@ -1,0 +1,215 @@
+﻿@{
+    ViewData["Title"] = "ProductDetail";
+    Layout = "~/Views/UILayout/_UILayout.cshtml";
+}
+
+<!-- Breadcrumb: Aralarındaki boşluk azaltıldı -->
+<div class="pt-4 text-sm text-gray-600">
+    <a href="index.html" class="hover:text-primary">Anasayfa</a>
+    <span class="mx-1">></span>
+    <a href="#" class="hover:text-primary">Elektronik</a>
+    <span class="mx-1">></span>
+    <a href="#" class="hover:text-primary">Telefon</a>
+    <span class="mx-1">></span>
+    <a href="#" class="hover:text-primary">Apple</a>
+    <span class="mx-1">></span>
+    <span class="font-semibold text-gray-800">iPhone 13 Pro</span>
+</div>
+
+<!-- Product Details Section: 2 Columns -->
+<div class="flex flex-col md:flex-row gap-8 pt-4">
+    <!-- Column 1: Image Slider with vertical thumbnails on left -->,
+    @await Component.InvokeAsync("_ProductDetailImageSliderComponentPartial")
+
+    <!-- Column 2: Product Information and Campaigns -->
+    @await Component.InvokeAsync("_ProductDetailFeatureComponentPartial")
+
+</div>
+
+<!-- Tabbed Section for Detailed Info: Aradaki boşluk "mt-8" -->
+<div class="mt-8">
+    <div class="border-b">
+        <ul class="flex space-x-4">
+            <li><button class="py-2 px-4 tab-btn active" data-tab="description">Ürün Açıklaması</button></li>
+            <li><button class="py-2 px-4 tab-btn " data-tab="reviews">Yorumlar</button></li>
+            <li><button class="py-2 px-4 tab-btn" data-tab="return">İade & İptal</button></li>
+        </ul>
+    </div>
+    @await Component.InvokeAsync("_ProductDetailDescriptionComponentPartial")
+    @await Component.InvokeAsync("_ProductDetailInformationComponentPartial")
+    @await Component.InvokeAsync("_ProductDetailReviewComponentPartial")
+</div>
+
+<!-- Frequently Bought Together Section -->
+<section class="mt-8">
+    <h2 class="text-xl font-semibold mb-4">Sıklıkla Birlikte Alınan Ürünler</h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="border rounded-lg p-4 transition-shadow duration-300 hover:shadow-lg">
+            <div class="relative overflow-hidden">
+                <a href="product.html">
+                    <img src="~/commerce/E-Commerce/img/neganceketr.jpg" alt="Ürün" class="w-full h-48 object-contain rounded-lg transition-transform duration-300 hover:scale-105">
+                </a>
+                <button class="absolute top-2 right-2 text-gray-400 hover:text-red-500">
+                    <i class="far fa-heart text-xl"></i>
+                </button>
+            </div>
+            <div class="mt-4">
+                <a href="product.html" class="hover:text-primary transition-colors">
+                    <h3 class="font-medium">Negan Ceket</h3>
+                </a>
+                <p class="text-lg font-bold mt-2">99,99 TL</p>
+                <button class="w-full mt-2 bg-primary text-white py-2 rounded-lg hover:opacity-100 transition-opacity">
+                    Sepete Ekle
+                </button>
+            </div>
+        </div>
+        <div class="border rounded-lg p-4 transition-shadow duration-300 hover:shadow-lg">
+            <div class="relative overflow-hidden">
+                <a href="product.html">
+                    <img src="~/commerce/E-Commerce/img/sucveceza.jpg" alt="Ürün" class="w-full h-48 object-contain rounded-lg transition-transform duration-300 hover:scale-105">
+                </a>
+                <button class="absolute top-2 right-2 text-gray-400 hover:text-red-500">
+                    <i class="far fa-heart text-xl"></i>
+                </button>
+            </div>
+            <div class="mt-4">
+                <a href="product.html" class="hover:text-primary transition-colors">
+                    <h3 class="font-medium">Suç ve Ceza Dostoyevski İmzalı </h3>
+                </a>
+                <p class="text-lg font-bold mt-2">99,99 TL</p>
+                <button class="w-full mt-2 bg-primary text-white py-2 rounded-lg hover:opacity-100 transition-opacity">
+                    Sepete Ekle
+                </button>
+            </div>
+        </div>
+        <div class="border rounded-lg p-4 transition-shadow duration-300 hover:shadow-lg">
+            <div class="relative overflow-hidden">
+                <a href="product.html">
+                    <img src="~/commerce/E-Commerce/img/defter.jpg" alt="Ürün" class="w-full h-48 object-contain rounded-lg transition-transform duration-300 hover:scale-105">
+                </a>
+                <button class="absolute top-2 right-2 text-gray-400 hover:text-red-500">
+                    <i class="far fa-heart text-xl"></i>
+                </button>
+            </div>
+            <div class="mt-4">
+                <a href="product.html" class="hover:text-primary transition-colors">
+                    <h3 class="font-medium">Defter Çok Kullanılmamış</h3>
+                </a>
+                <p class="text-lg font-bold mt-2">99,99 TL</p>
+                <button class="w-full mt-2 bg-primary text-white py-2 rounded-lg hover:opacity-100 transition-opacity">
+                    Sepete Ekle
+                </button>
+            </div>
+        </div>
+        <div class="border rounded-lg p-4 transition-shadow duration-300 hover:shadow-lg">
+            <div class="relative overflow-hidden">
+                <a href="product.html">
+                    <img src="img/avize." alt="Ürün" class="w-full h-48 object-contain rounded-lg transition-transform duration-300 hover:scale-105">
+                </a>
+                <button class="absolute top-2 right-2 text-gray-400 hover:text-red-500">
+                    <i class="far fa-heart text-xl"></i>
+                </button>
+            </div>
+            <div class="mt-4">
+                <a href="product.html" class="hover:text-primary transition-colors">
+                    <h3 class="font-medium">Avize</h3>
+                </a>
+                <p class="text-lg font-bold mt-2">99,99 TL</p>
+                <button class="w-full mt-2 bg-primary text-white py-2 rounded-lg hover:opacity-100 transition-opacity">
+                    Sepete Ekle
+                </button>
+            </div>
+        </div>
+
+    </div>
+</section>
+<script>
+                  const focusReviewElements = [
+        document.getElementById('focusReviews'),
+        document.getElementById('focusReviewsText')
+      ];
+
+      focusReviewElements.forEach(el => {
+        el.addEventListener('click', () => {
+          // Tüm tab butonlarından aktif sınıfını kaldır
+          document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+          // Tüm tab içeriklerini gizle
+          document.querySelectorAll('.tab-content').forEach(content => content.classList.add('hidden'));
+
+          // Yorumlar sekmesini aktif yap
+          document.getElementById('reviews').classList.remove('hidden');
+          // Eğer reviews sekmesi için buton varsa, aktif sınıfı ekle
+          const reviewsTabBtn = document.querySelector('.tab-btn[data-tab="reviews"]');
+          if(reviewsTabBtn) {
+            reviewsTabBtn.classList.add('active');
+          }
+
+          // Yorumlar bölümüne yumuşak kaydırma yap
+          document.getElementById('reviews').scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+                // Slider: Array of image URLs (küçük resimler ile aynı)
+                const images = [
+                    'img/iphone13pro.avif',
+                    'img/mi11.jpeg',
+                    'img/huawip40.avif',
+                    'img/s21.avif'
+                ];
+                let currentIndex = 0;
+                document.getElementById('nextSlide').addEventListener('click', function () {
+                    currentIndex = (currentIndex + 1) % images.length;
+                    document.getElementById('mainImage').src = images[currentIndex];
+                });
+                document.getElementById('prevSlide').addEventListener('click', function () {
+                    currentIndex = (currentIndex - 1 + images.length) % images.length;
+                    document.getElementById('mainImage').src = images[currentIndex];
+                });
+
+                // Küçük resimlere hover ile ana resmi güncelle
+                function changeImage(thumbnail) {
+                    const mainImage = document.getElementById('mainImage');
+                    mainImage.src = thumbnail.src;
+                    // currentIndex'i, küçük resmin dosya ismine göre güncelleyelim
+                    const fileName = thumbnail.src.split('/').pop();
+                    const idx = images.findIndex(src => src.endsWith(fileName));
+                    currentIndex = idx !== -1 ? idx : 0;
+                }
+
+                // Tab switching for product details
+                const tabButtons = document.querySelectorAll('.tab-btn');
+                const tabContents = document.querySelectorAll('.tab-content');
+
+                tabButtons.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        tabButtons.forEach(button => button.classList.remove('active'));
+                        btn.classList.add('active');
+                        tabContents.forEach(content => content.classList.add('hidden'));
+                        document.getElementById(btn.dataset.tab).classList.remove('hidden');
+                    });
+                });
+
+                // Focus on reviews when clicking on rating section
+                const focusReviewsElements = [document.getElementById('focusReviews'), document.getElementById('focusReviewsText')];
+                focusReviewsElements.forEach(el => {
+                    el.addEventListener('click', () => {
+                        document.getElementById('reviews').scrollIntoView({ behavior: 'smooth' });
+                    });
+                });
+
+                // Renk seçimi: seçilen butona kırmızı border ekle
+                function selectColor(el) {
+      // Tüm renk seçeneklerinden 'selected' sınıfını kaldır
+      document.querySelectorAll('.color-option').forEach(btn => {
+        btn.classList.remove('selected');
+      });
+      // Tıklanan renk seçeneğine 'selected' sınıfını ekle
+      el.classList.add('selected');
+    }
+
+
+                // Boyut seçimi: seçilen butona mavi arka plan ve beyaz yazı ekle (değişiklik yapılmadı)
+                function selectSize(el) {
+                    document.querySelectorAll('.size-option').forEach(btn => btn.classList.remove('bg-blue-500', 'text-white'));
+                    el.classList.add('bg-blue-500', 'text-white');
+                }
+</script>
