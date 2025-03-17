@@ -1,0 +1,36 @@
+﻿@model CreateCategoryDto
+@{
+    ViewData["Title"] = "CreateCategory";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+
+<main class="flex-1 p-6">
+    @await Component.InvokeAsync("_AdminLayoutMainSectionViewbagComponentPartial")
+    <div class="bg-white h-full p-6">
+        <!-- Başlık -->
+        <h2 class="text-2xl font-bold mb-4 text-wht-800">Kategori Ekleme</h2>
+
+        <!-- Form - soldan başlayan, genişleyen tasarım -->
+        <form method="post" class="w-full bg-white rounded-lg shadow-md p-6">
+            <div class="mb-4">
+                <label for="category" class="block text-gray-700 text-sm font-bold mb-2">
+                    Kategori adı
+                </label>
+                <input type="text"
+                       asp-for="CategoryName"
+                       id="category"
+                       class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                       placeholder="Kategori giriniz">
+
+            </div>
+
+            <!-- Buton - altta konumlandırıldı -->
+            <div class="mt-6">
+                <button type="submit"
+                        class="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-6 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-200">
+                    Kaydet
+                </button>
+            </div>
+        </form>
+    </div>
+</main>

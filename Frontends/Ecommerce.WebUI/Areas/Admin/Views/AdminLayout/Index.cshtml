@@ -4,12 +4,34 @@
 }
 
 <!DOCTYPE html>
+<html lang="tr">
+@await Component.InvokeAsync("_AdminLayoutHeadComponentPartial")
+<body class="flex h-screen bg-gray-100">
+     
+    <!-- Sidebar -->
+    @await Component.InvokeAsync("_AdminLayoutSidebarComponentPartial")
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col">
+        <!-- Header -->
+        @await Component.InvokeAsync("_AdminLayoutHeaderComponentPartial")
+
+       
+        <!-- İçerik Alanı -->
+       @RenderBody()
+    </div>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('dropdown').classList.toggle('hidden');
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.closest('#userMenu')) {
+                document.getElementById('dropdown').classList.add('hidden');
+            }
+        }
+    </script>
+
 </body>
 </html>

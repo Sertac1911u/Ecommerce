@@ -1,0 +1,74 @@
+﻿@model UpdateProductDto
+@{
+    ViewData["Title"] = "UpdateProduct";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml";
+}
+<main class="flex-1 p-6">
+    @await Component.InvokeAsync("_AdminLayoutMainSectionViewbagComponentPartial")
+    <div class="bg-white h-full p-6">
+        <!-- Başlık -->
+        <h2 class="text-2xl font-bold mb-4 text-wht-800">Ürün Güncelleme</h2>
+        <!-- Form - soldan başlayan, genişleyen tasarım -->
+        <form method="post" class="w-full bg-white rounded-lg shadow-md p-6">
+            <div>
+                <input type="hidden"
+                       readonly
+                       asp-for="ProductId"
+                       id="productId">
+            </div>
+            <div class="mb-4">
+                <label for="productName" class="block text-gray-700 text-sm font-bold mb-2">
+                    Ürün adı
+                </label>
+                <input type="text"
+                       asp-for="ProductName"
+                       id="productName"
+                       class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                       placeholder="Ürün adı giriniz">
+            </div>
+            <div class="mb-4">
+                <label for="productPrice" class="block text-gray-700 text-sm font-bold mb-2">
+                    Ürün Fiyatı
+                </label>
+                <input type="text"
+                       asp-for="ProductPrice"
+                       id="productPrice"
+                       class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                       placeholder="Ürün fiyatı giriniz">
+            </div>
+            <div class="mb-4">
+                <label for="productCategory" class="block text-gray-700 text-sm font-bold mb-2">
+                    Kategori
+                </label>
+                @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.CategoryValues, new { @class = "w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" })
+            </div>
+            <div class="mb-4">
+                <label for="productImage" class="block text-gray-700 text-sm font-bold mb-2">
+                    Ürün Görsel URL
+                </label>
+                <input type="text"
+                       asp-for="ProductImageUrl"
+                       id="productImage"
+                       class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                       placeholder="Ürün image yolu giriniz">
+            </div>
+            <div class="mb-4">
+                <label for="productDescription" class="block text-gray-700 text-sm font-bold mb-2">
+                    Ürün Açıklaması
+                </label>
+                <textarea asp-for="ProductDescription"
+                          id="productDescription"
+                          rows="4"
+                          class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                          placeholder="Ürün açıklaması giriniz"></textarea>
+            </div>
+            <!-- Buton - altta konumlandırıldı -->
+            <div class="mt-6">
+                <button type="submit"
+                        class="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-6 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-200">
+                    Güncelle
+                </button>
+            </div>
+        </form>
+    </div>
+</main>
