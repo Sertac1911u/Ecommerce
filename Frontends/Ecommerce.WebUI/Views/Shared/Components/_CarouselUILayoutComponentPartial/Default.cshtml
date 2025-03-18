@@ -1,20 +1,44 @@
-﻿<h2 class="text-2xl font-semibold mb-6">Öne Çıkan Ürünler</h2>
+﻿@model List<ResultFeatureSliderDto>
+@{
+    int count = 0;
+}
+<h2 class="text-2xl font-semibold mb-6">Öne Çıkan Ürünler</h2>
 <div class="max-w-full w-full mx-auto bg-white rounded-lg shadow-lg overflow-hidden mb-8">
     <div class="relative">
         <div id="carousel-container" class="relative h-64 md:h-96 overflow-hidden">
             <!-- Carousel Items -->
-            <div class="carousel-item absolute inset-0 transition-opacity duration-500 flex items-center justify-center">
-                <img src="~/commerce/E-Commerce/img/sucveceza.jpg" alt="Slide 1" class="object-cover w-full h-full">
-            </div>
-            <div class="carousel-item absolute inset-0 transition-opacity duration-500 flex items-center justify-center opacity-0">
-                <img src="~/commerce/E-Commerce/img/defter.jpg" alt="Slide 2" class="object-cover w-full h-full">
-            </div>
-            <div class="carousel-item absolute inset-0 transition-opacity duration-500 flex items-center justify-center opacity-0">
-                <img src="~/commerce/E-Commerce/img/kablolukulakluk.png" alt="Slide 3" class="object-cover w-full h-full">
-            </div>
-            <div class="carousel-item absolute inset-0 transition-opacity duration-500 flex items-center justify-center opacity-0">
-                <img src="~/commerce/E-Commerce/img/dericeket.jpg" alt="Slide 4" class="object-cover w-full h-full">
-            </div>
+            @foreach (var item in Model)
+            {
+                count++;
+                if (count == 1)
+                {
+                    <div class="carousel-item absolute inset-0 transition-opacity duration-500 flex items-center justify-center">
+                        <img src="@item.ImageUrl" alt="Slide 1" class="object-cover w-full h-full">
+                        <!-- Description Overlay -->
+                        <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 text-white p-4">
+                            <h3 class="text-xl font-bold">@item.Title</h3>
+                            <p class="text-sm">@item.Desciption</p>
+                            <button class="mt-2 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                Şimdi İncele
+                            </button>
+                        </div>
+                    </div>
+                }
+                else if (count > 1)
+                {
+                    <div class="carousel-item absolute inset-0 transition-opacity duration-500 flex items-center justify-center opacity-0">
+                        <img src="@item.ImageUrl" alt="Slide 1" class="object-cover w-full h-full">
+                        <!-- Description Overlay -->
+                        <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-60 text-white p-4">
+                            <h3 class="text-xl font-bold">@item.Title</h3>
+                            <p class="text-sm">@item.Desciption</p>
+                            <button class="mt-2 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                Şimdi İncele
+                            </button>
+                        </div>
+                    </div>
+                }
+            }
         </div>
 
 
@@ -31,12 +55,12 @@
         </button>
     </div>
 
-    <!-- Indicators -->
+    <!-- Dynamic Indicators based on number of items -->
     <div id="indicators" class="flex justify-center p-4">
-        <span class="carousel-indicator h-3 w-3 rounded-full bg-blue-600 mx-1 cursor-pointer"></span>
-        <span class="carousel-indicator h-3 w-3 rounded-full bg-gray-300 mx-1 cursor-pointer"></span>
-        <span class="carousel-indicator h-3 w-3 rounded-full bg-gray-300 mx-1 cursor-pointer"></span>
-        <span class="carousel-indicator h-3 w-3 rounded-full bg-gray-300 mx-1 cursor-pointer"></span>
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            <span class="carousel-indicator h-3 w-3 rounded-full @(i == 0 ? "bg-blue-600" : "bg-gray-300") mx-1 cursor-pointer"></span>
+        }
     </div>
 </div>
 <script>
