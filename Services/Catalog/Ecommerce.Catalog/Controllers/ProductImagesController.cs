@@ -44,5 +44,11 @@ namespace Ecommerce.Catalog.Controllers
             await _productImageService.UpdateProductImageAsync(updateProductImageDto);
             return Ok("Image Updated");
         }
+        [HttpGet("ProductImagesByProductId/{id}")]
+        public async Task<IActionResult> ProductImagesByProductId(string id)
+        {
+            var values = await _productImageService.GetByProductIdProductImageAsync(id);
+            return Ok(values);
+        }
     }
 }

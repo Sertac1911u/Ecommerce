@@ -1,5 +1,6 @@
 ﻿using Ecommerce.DtoLayer.CatalogDtos.CategoryDtos;
 using Ecommerce.DtoLayer.CatalogDtos.ProductDtos;
+using Ecommerce.DtoLayer.CatalogDtos.ProductImageDtos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;

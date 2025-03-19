@@ -1,12 +1,13 @@
-﻿<div class="md:w-1/2 flex flex-col">
-    <h1 class="text-3xl font-bold mb-4">iPhone 13 Pro</h1>
+﻿@model UpdateProductDto
+<div class="md:w-1/2 flex flex-col">
+    <h1 class="text-3xl font-bold mb-4">@Model.ProductName</h1>
 
     <!-- Fiyat Bölümü -->
     <div class="mb-4">
         <span class="text-red-500 block text-sm font-bold mb-1">Son 15: En Düşük Fiyat</span>
         <div class="flex items-center">
             <span class="text-gray-500 line-through mr-2">29.999 TL</span>
-            <span class="text-3xl font-bold text-primary">24.999 TL</span>
+            <span class="text-3xl font-bold text-primary">@Model.ProductPrice TL</span>
         </div>
     </div>
 
@@ -66,6 +67,7 @@
     <!-- Additional Product Info -->
     <div class="text-gray-700 mb-4">
         <p class="mb-2">Ürün Kodu: IP13P-256GB</p>
+        <p class="mb-2">Ürün Açıklaması: @Model.ProductDescription</p>
         <p class="mb-2">Renk: Gümüş</p>
         <p class="mb-2">Stok Durumu: Stokta Var</p>
         <p class="mb-2">Kargo: Ücretsiz</p>

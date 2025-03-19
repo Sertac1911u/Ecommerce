@@ -1,7 +1,8 @@
-﻿namespace Ecommerce.Catalog.Dtos.ProductImageDtos
+﻿namespace Ecommerce.DtoLayer.CatalogDtos.ProductImageDtos
 {
-    public class CreateProductImageDto
+    public class UpdateProductImageDto
     {
+        public string ProductImageId { get; set; }
         public string ProductImage0 { get; set; }
         public string ProductImage1 { get; set; }
         public string ProductImage2 { get; set; }

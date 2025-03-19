@@ -18,7 +18,7 @@
 
         <!-- Değerlendirme Filter -->
         @await Component.InvokeAsync("_ProductListRatingFilterComponentPartial")
-   
+
         <!-- Boyut Filter -->
         @await Component.InvokeAsync("_ProductListSizeFilterComponentPartial")
 
@@ -31,7 +31,6 @@
     </aside>
 
 
-    <!-- Products Grid (Sağ: %75) -->
     <section class="w-3/4">
         <!-- Sort Bar -->
         <div class="bg-white rounded-lg shadow-sm p-4 mb-6 flex items-center justify-between">
@@ -45,7 +44,7 @@
         </div>
 
         <!-- Products Grid -->
-        @await Component.InvokeAsync("_ProductListComponentPartial")
+        @await Component.InvokeAsync("_ProductListComponentPartial", new { id = ViewBag.i })
 
     </section>
 
