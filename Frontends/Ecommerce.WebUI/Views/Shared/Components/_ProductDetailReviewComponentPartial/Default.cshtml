@@ -1,37 +1,63 @@
-﻿<div id="reviews" class="tab-content p-4 hidden">
-    <h2 class="text-xl font-semibold mb-4">Kullanıcı Yorumları</h2>
+﻿@model List<ResultCommentDto>
+<div id="reviews" class="tab-content p-4 hidden">
+    <h2 class="text-xl font-semibold mb-4">Kullanıcı Yorumları (@Model.Count)</h2>
     <div class="space-y-6">
-        <div class="flex space-x-4">
-            <img src="https://picsum.photos/50/50?random=1" alt="Kullanıcı Resmi" class="w-12 h-12 rounded-full">
-            <div>
-                <h3 class="font-medium">Ahmet Y.</h3>
-                <div class="flex items-center text-yellow-400 text-xs mb-1">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                    <span class="ml-1 text-gray-600">4.7</span>
+
+        @foreach (var item in Model)
+        {
+            <div class="flex space-x-4">
+                <img src="@item.ImageUrl" alt="@item.NameSurname" class="w-12 h-12 rounded-full">
+                <div>
+                    <h3 class="font-medium">@item.NameSurname</h3>
+                    @if (item.Rating == 1)
+                    {
+                        <div class="flex items-center text-yellow-400 text-xs mb-1">
+                            <i class="fas fa-star"></i>
+
+                            <span class="ml-1 text-gray-600">1</span>
+                        </div>
+                    }
+                    @if (item.Rating == 2)
+                    {
+                        <div class="flex items-center text-yellow-400 text-xs mb-1">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span class="ml-1 text-gray-600">2</span>
+                        </div>
+                    }        @if (item.Rating == 3)
+                    {
+                        <div class="flex items-center text-yellow-400 text-xs mb-1">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span class="ml-1 text-gray-600">3</span>
+                        </div>
+                    }        @if (item.Rating == 4)
+                    {
+                        <div class="flex items-center text-yellow-400 text-xs mb-1">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span class="ml-1 text-gray-600">4</span>
+                        </div>
+                    }        @if (item.Rating == 5)
+                    {
+                        <div class="flex items-center text-yellow-400 text-xs mb-1">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span class="ml-1 text-gray-600">5</span>
+                        </div>
+                    }
+                    <p class="text-gray-700 text-sm">@item.CommentDetail</p>
+                    <span class="text-xs text-gray-500">@item.CreatedDate.ToShortDateString()</span>
                 </div>
-                <p class="text-gray-700 text-sm">iPhone 13 Pro gerçekten harika bir cihaz. Performansı, kamerası ve tasarımı beklentilerimin ötesinde. Kesinlikle tavsiye ederim!</p>
-                <span class="text-xs text-gray-500">12 Mart 2023</span>
             </div>
-        </div>
-        <div class="flex space-x-4">
-            <img src="https://picsum.photos/50/50?random=2" alt="Kullanıcı Resmi" class="w-12 h-12 rounded-full">
-            <div>
-                <h3 class="font-medium">Elif K.</h3>
-                <div class="flex items-center text-yellow-400 text-xs mb-1">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="far fa-star"></i>
-                    <span class="ml-1 text-gray-600">4.0</span>
-                </div>
-                <p class="text-gray-700 text-sm">Kullanımı kolay, hızlı ve şık. Fiyatı biraz yüksek olsa da, sunduğu özelliklerle bunu hak ediyor.</p>
-                <span class="text-xs text-gray-500">5 Mart 2023</span>
-            </div>
-        </div>
+
+        }
+
     </div>
 </div>

@@ -1,9 +1,10 @@
-﻿<div id="return" class="tab-content p-4 hidden">
+﻿@model UpdateProductDetailDto
+<div id="return" class="tab-content p-4 hidden">
     <h2 class="text-xl font-semibold mb-4">İade & İptal Koşulları</h2>
     <table class="w-full text-sm">
         <tr>
             <td class="py-2 font-medium">İade Koşulları</td>
-            <td class="py-2">Ürünü 14 gün içinde iade edebilirsiniz.</td>
+            <td class="py-2">@Model.ProductInformation</td>
         </tr>
         <tr>
             <td class="py-2 font-medium">İptal Koşulları</td>
