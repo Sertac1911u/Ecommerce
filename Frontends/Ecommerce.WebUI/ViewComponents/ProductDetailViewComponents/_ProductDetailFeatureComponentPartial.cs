@@ -20,6 +20,7 @@ namespace Ecommerce.WebUI.ViewComponents.ProductDetailViewComponents
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
                 var values = JsonConvert.DeserializeObject<UpdateProductDto>(jsonData);
+                Console.WriteLine("dsdfdsf");
                 return View(values);
             }
             return View();

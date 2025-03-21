@@ -43,10 +43,10 @@ namespace Ecommerce.WebUI.Areas.Admin.Controllers
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(updateProductImageDto);
             StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            var responseMessage = await client.PutAsync("https://localhost:7070/api/ProductImages/", stringContent);
+            var responseMessage = await client.PutAsync("https://localhost:7070/api/ProductImages", stringContent);
             if (responseMessage.IsSuccessStatusCode)
             {
-                return RedirectToAction("ProductListWithCategory", "Product", new { area = "Admin" });
+                return RedirectToAction("Index", "Product", new { area = "Admin" });
             }
             return View();
         }
