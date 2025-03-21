@@ -14,6 +14,7 @@ namespace Ecommerce.WebUI.ViewComponents.ProductDetailViewComponents
         }
         public async Task<IViewComponentResult> InvokeAsync(string id)
         {
+            ViewBag.pId = id;
             var client = _httpClientFactory.CreateClient();
             var responseMessage = await client.GetAsync("https://localhost:7075/api/Comments/CommentListByProductId?id=" + id);
 

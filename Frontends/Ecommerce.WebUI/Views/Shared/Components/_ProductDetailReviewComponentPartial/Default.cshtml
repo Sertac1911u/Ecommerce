@@ -1,8 +1,9 @@
 ﻿@model List<ResultCommentDto>
+
 <div id="reviews" class="tab-content p-4 hidden">
+
     <h2 class="text-xl font-semibold mb-4">Kullanıcı Yorumları (@Model.Count)</h2>
     <div class="space-y-6">
-
         @foreach (var item in Model)
         {
             <div class="flex space-x-4">
@@ -13,7 +14,6 @@
                     {
                         <div class="flex items-center text-yellow-400 text-xs mb-1">
                             <i class="fas fa-star"></i>
-
                             <span class="ml-1 text-gray-600">1</span>
                         </div>
                     }
@@ -56,8 +56,9 @@
                     <span class="text-xs text-gray-500">@item.CreatedDate.ToShortDateString()</span>
                 </div>
             </div>
-
         }
-
     </div>
+
+    @await Html.PartialAsync("~/Views/ProductList/AddComment.cshtml", new { id = ViewBag.x,pId=ViewBag.pId })
 </div>
+

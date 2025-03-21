@@ -1,0 +1,98 @@
+﻿<h2 class="text-xl font-semibold mb-4 mt-10">Yorum Yapın</h2>
+
+<div class="comment-form mb-6 p-5 bg-gray-50 rounded-lg shadow-sm">
+    <form method="post" asp-action="AddComment" asp-controller="ProductList" id="commentForm" class="space-y-4">
+        <input type="hidden" value="@ViewBag.pId" name="ProductId" />
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+                <label for="nameSurname" class="block text-sm font-medium text-gray-700 mb-1">Ad Soyad</label>
+                <input type="text" id="nameSurname" name="NameSurname" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+            </div>
+            <div>
+                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">E-posta</label>
+                <input type="email" id="email" name="Email" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+            </div>
+        </div>
+
+        <div>
+            <label for="comment" class="block text-sm font-medium text-gray-700 mb-1">Yorumunuz</label>
+            <textarea id="comment" name="CommentDetail" rows="4" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+        </div>
+
+        <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Puanlama</label>
+            <div class="flex items-center space-x-1">
+                <div class="rating-stars">
+                    <input type="radio" id="star5" name="Rating" value="5" class="hidden">
+                    <label for="star5" class="cursor-pointer text-2xl text-gray-400 hover:text-yellow-400">★</label>
+
+                    <input type="radio" id="star4" name="Rating" value="4" class="hidden">
+                    <label for="star4" class="cursor-pointer text-2xl text-gray-400 hover:text-yellow-400">★</label>
+
+                    <input type="radio" id="star3" name="Rating" value="3" class="hidden">
+                    <label for="star3" class="cursor-pointer text-2xl text-gray-400 hover:text-yellow-400">★</label>
+
+                    <input type="radio" id="star2" name="Rating" value="2" class="hidden">
+                    <label for="star2" class="cursor-pointer text-2xl text-gray-400 hover:text-yellow-400">★</label>
+
+                    <input type="radio" id="star1" name="Rating" value="1" class="hidden">
+                    <label for="star1" class="cursor-pointer text-2xl text-gray-400 hover:text-yellow-400">★</label>
+                </div>
+                <span id="ratingValue" class="text-sm text-gray-500 ml-2">0</span>
+            </div>
+        </div>
+
+        <div>
+            <button type="submit" class="px-4 py-2 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                Yorum Gönder
+            </button>
+        </div>
+    </form>
+</div>
+
+<style>
+    .rating-stars {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+    }
+
+        .rating-stars input:checked ~ label,
+        .rating-stars label:hover,
+        .rating-stars label:hover ~ label {
+            color: #FBBF24;
+        }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const ratingLabels = document.querySelectorAll('.rating-stars label');
+        const ratingInputs = document.querySelectorAll('.rating-stars input');
+        const ratingValue = document.getElementById('ratingValue');
+        const form = document.getElementById('commentForm');
+
+        // Rating seçildiğinde görsel geri bildirim ve değer güncelleme
+        ratingLabels.forEach(label => {
+            label.addEventListener('click', function() {
+                const forAttribute = this.getAttribute('for');
+                const ratingInput = document.getElementById(forAttribute);
+                const value = parseInt(ratingInput.value); // parseInt ile sayıya dönüştürüyoruz
+                ratingValue.textContent = value;
+            });
+        });
+
+        // Form gönderiminde rating değerini kontrol etme
+        form.addEventListener('submit', function(e) {
+            const selectedRating = document.querySelector('input[name="Rating"]:checked');
+
+            if (!selectedRating) {
+                e.preventDefault();
+                alert("Lütfen bir puanlama seçiniz.");
+                return false;
+            }
+
+            // Form normal şekilde gönderilir - preventDefault kaldırıldı
+        });
+    });
+</script>
