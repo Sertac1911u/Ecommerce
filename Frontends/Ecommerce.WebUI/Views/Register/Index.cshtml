@@ -1,0 +1,143 @@
+﻿@model CreateRegisterDto
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Üye Ol - E-Market</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3490dc',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-[Poppins] bg-gray-50">
+
+    <!-- REGISTER CONTENT -->
+    <main class="container mx-auto px-4 md:px-32 mt-40 mb-16">
+        <div class="max-w-xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+            <!-- Page Title -->
+            <h1 class="text-2xl font-bold mt-8 text-center text-gray-800">Yeni Hesap Oluşturun</h1>
+
+            <div class="p-8">
+                <!-- Social Register Buttons -->
+                <div class="space-y-3 mb-6">
+                    <button class="w-full flex items-center justify-center gap-2 bg-[#4267B2] text-white py-3 rounded-lg hover:bg-opacity-90 transition">
+                        <i class="fab fa-facebook-f"></i>
+                        <span>Facebook ile Üye Ol</span>
+                    </button>
+                    <button class="w-full flex items-center justify-center gap-2 bg-[#DB4437] text-white py-3 rounded-lg hover:bg-opacity-90 transition">
+                        <i class="fab fa-google"></i>
+                        <span>Google ile Üye Ol</span>
+                    </button>
+                    <button class="w-full flex items-center justify-center gap-2 bg-black text-white py-3 rounded-lg hover:bg-opacity-90 transition">
+                        <i class="fab fa-apple"></i>
+                        <span>Apple ile Üye Ol</span>
+                    </button>
+                </div>
+
+                <div class="flex items-center my-6">
+                    <div class="flex-grow border-t border-gray-300"></div>
+                    <span class="px-4 text-gray-500">veya</span>
+                    <div class="flex-grow border-t border-gray-300"></div>
+                </div>
+
+                <!-- Email Register Form -->
+                <form method="post">
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label for="firstName" class="block text-gray-700 mb-2">Ad</label>
+                            <input type="text" asp-for="Name" id="firstName" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary" placeholder="Adınız">
+                        </div>
+                        <div>
+                            <label for="lastName" class="block text-gray-700 mb-2">Soyad</label>
+                            <input type="text" asp-for="Surname" id="lastName" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary" placeholder="Soyadınız">
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="register-email" class="block text-gray-700 mb-2">E-posta Adresi</label>
+                        <input type="email" asp-for="Email" id="register-email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary" placeholder="ornek@email.com">
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="register-username" class="block text-gray-700 mb-2">Kullanıcı Adı</label>
+                        <input type="text" asp-for="Username" id="register-username" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary" placeholder="ornek1911u">
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="register-password" class="block text-gray-700 mb-2">Şifre</label>
+                        <div class="relative">
+                            <input type="password" asp-for="Password" id="register-password" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary" placeholder="En az 8 karakter">
+                            <button type="button" class="absolute right-3 top-3 text-gray-400 hover:text-gray-600" id="toggleRegisterPassword">
+                                <i class="far fa-eye"></i>
+                            </button>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-1">Şifreniz en az 8 karakter uzunluğunda olmalı ve harf, rakam ve özel karakter içermelidir.</p>
+                    </div>
+
+                    <div class="mb-6 space-y-2">
+                        <div class="flex items-start">
+                            <input type="checkbox" id="terms" class="mt-1 mr-2">
+                            <label for="terms" class="text-gray-700 text-sm">
+                                <span>E-Market'in <a href="#" class="text-primary hover:underline">Üyelik Sözleşmesi</a>'ni ve <a href="#" class="text-primary hover:underline">Kişisel Verilerin Korunması Politikası</a>'nı okudum, kabul ediyorum.</span>
+                            </label>
+                        </div>
+                        <div class="flex items-start">
+                            <input type="checkbox" id="marketing" class="mt-1 mr-2">
+                            <label for="marketing" class="text-gray-700 text-sm">
+                                E-Market'ten bildirim ve kampanya mesajları almak istiyorum.
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="w-full bg-primary text-white py-3 rounded-lg hover:bg-opacity-90 transition font-medium">
+                        Üye Ol
+                    </button>
+                </form>
+
+                <div class="mt-6 text-center">
+                    <p class="text-gray-700">
+                        Zaten hesabınız var mı?
+                        <a href="/Login/Index" class="text-primary hover:underline font-medium">Giriş Yap</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Toggle Register Password Visibility
+            const toggleRegisterPassword = document.getElementById('toggleRegisterPassword');
+            const registerPasswordField = document.getElementById('register-password');
+
+            toggleRegisterPassword.addEventListener('click', function() {
+                const type = registerPasswordField.getAttribute('type') === 'password' ? 'text' : 'password';
+                registerPasswordField.setAttribute('type', type);
+
+                // Toggle eye icon
+                toggleRegisterPassword.querySelector('i').classList.toggle('fa-eye');
+                toggleRegisterPassword.querySelector('i').classList.toggle('fa-eye-slash');
+            });
+        });
+    </script>
+</body>
+</html>
