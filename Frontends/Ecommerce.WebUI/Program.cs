@@ -1,4 +1,10 @@
+﻿using Ecommerce.WebUI.Handlers;
 using Ecommerce.WebUI.Services;
+using Ecommerce.WebUI.Services.Concretes;
+using Ecommerce.WebUI.Services.Interfaces;
+using Ecommerce.WebUI.Settings;
+using Elfie.Serialization;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,10 +20,38 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddCo
     opt.Cookie.Name = "EcommerceJwt";
 });
 
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, opt =>
+{
+    opt.LoginPath = "/Login/Index/";
+    opt.ExpireTimeSpan = TimeSpan.FromDays(5);
+    opt.Cookie.Name= "EcommerceCookie";
+    opt.SlidingExpiration = true;
+});
+
 builder.Services.AddHttpContextAccessor();
+
 builder.Services.AddScoped<ILoginService, LoginService>();
+builder.Services.AddScoped<IIdentityService, IdentityService>(); // ← Varsa bu da
+
+builder.Services.AddHttpClient<IIdentityService, IdentityService>();
+
+
 builder.Services.AddHttpClient();
 builder.Services.AddControllersWithViews();
+
+
+builder.Services.Configure<ClientSettings>(builder.Configuration.GetSection("ClientSettings"));
+builder.Services.Configure<ServiceApiSettings>(builder.Configuration.GetSection("ServiceApiSettings"));
+
+builder.Services.AddScoped<ResourceOwnerPasswordTokenHandler>();
+
+var values = builder.Configuration.GetSection("ServiceApiSettings").Get<ServiceApiSettings>();
+
+builder.Services.AddHttpClient<IUserService, UserService>(opt =>
+{
+    opt.BaseAddress = new Uri(values.IdentityServerUrl);
+}).AddHttpMessageHandler<ResourceOwnerPasswordTokenHandler>();
+
 
 var app = builder.Build();
 
