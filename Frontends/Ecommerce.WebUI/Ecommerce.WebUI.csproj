@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <PackageReference Include="Cnblogs.IdentityServer4.Storage" Version="4.2.1" />
+    <PackageReference Include="IdentityModel.AspNetCore.OAuth2Introspection" Version="3.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.14" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
   </ItemGroup>

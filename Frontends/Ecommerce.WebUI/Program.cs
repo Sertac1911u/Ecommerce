@@ -1,5 +1,6 @@
 ﻿using Ecommerce.WebUI.Handlers;
 using Ecommerce.WebUI.Services;
+using Ecommerce.WebUI.Services.CatalogServices.CategoryServices;
 using Ecommerce.WebUI.Services.Concretes;
 using Ecommerce.WebUI.Services.Interfaces;
 using Ecommerce.WebUI.Settings;
@@ -27,6 +28,7 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     opt.Cookie.Name= "EcommerceCookie";
     opt.SlidingExpiration = true;
 });
+builder.Services.AddMemoryCache();
 
 builder.Services.AddHttpContextAccessor();
 
@@ -45,7 +47,19 @@ builder.Services.Configure<ServiceApiSettings>(builder.Configuration.GetSection(
 
 builder.Services.AddScoped<ResourceOwnerPasswordTokenHandler>();
 
+builder.Services.AddScoped<ClientCredentialTokenHandler>();
+
+builder.Services.AddHttpClient<IClientCredentialTokenService, ClientCredentialTokenService>();
+
 var values = builder.Configuration.GetSection("ServiceApiSettings").Get<ServiceApiSettings>();
+
+
+builder.Services.AddHttpClient<ICategoryService, CategoryService>(opt =>
+{
+    opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Catalog.Path}/");
+}).AddHttpMessageHandler<ClientCredentialTokenHandler>();
+
+
 
 builder.Services.AddHttpClient<IUserService, UserService>(opt =>
 {
